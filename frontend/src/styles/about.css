@@ -1,0 +1,40 @@
+.dl {
+  padding: 0 14px 14px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.dl__item {
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--panel-2) 65%, transparent);
+}
+
+.dl__item[aria-disabled="true"] {
+  opacity: 0.95;
+  cursor: not-allowed;
+}
+
+.dl__item:hover {
+  background: color-mix(in oklab, var(--panel-2) 80%, transparent);
+}
+
+.dl__title {
+  font-weight: 900;
+  font-size: 13px;
+}
+
+.dl__meta {
+  margin-top: 6px;
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .dl {
+    grid-template-columns: 1fr;
+  }
+}
+
