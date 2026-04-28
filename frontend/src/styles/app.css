@@ -1,0 +1,116 @@
+:root {
+  --cy: rgba(255, 255, 255, 0.92);
+}
+
+body.app {
+  font-family: var(--mono);
+}
+
+.topbar--app .brand__mark {
+  border-color: color-mix(in oklab, var(--cy) 70%, var(--border));
+  background: color-mix(in oklab, var(--panel) 70%, transparent);
+}
+
+.appwrap {
+  padding-top: 16px;
+  padding-left: 56px;
+}
+
+.boot__title {
+  font-family: var(--mono);
+  font-weight: 900;
+  letter-spacing: 0.6px;
+}
+
+.boot__meta {
+  font-family: var(--mono);
+  font-size: 12px;
+}
+
+.boot__log {
+  margin: 0;
+  padding: 12px 14px 14px;
+  border-top: 1px solid var(--border);
+  font-family: var(--mono);
+  font-size: 12px;
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+
+.appgrid {
+  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  min-height: 560px;
+}
+
+.sidebar {
+  padding: 14px;
+  border-right: 1px solid var(--border);
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.mainpane {
+  min-width: 0;
+}
+
+.mainpane .feed {
+  border-top: 0;
+}
+
+.rail {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 44px;
+  border-right: 1px solid var(--border);
+  background: color-mix(in oklab, var(--bg) 86%, transparent);
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 10px 8px;
+}
+
+.rail__btn {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.rail__btn:hover {
+  border-color: var(--border);
+  background: var(--panel);
+}
+
+.rail__btn.is-active {
+  border-color: var(--border);
+  background: var(--panel-2);
+}
+
+.rail__spacer {
+  height: 8px;
+}
+
+@media (max-width: 960px) {
+  .appwrap {
+    padding-left: 22px;
+  }
+  .rail {
+    display: none;
+  }
+  .appgrid {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+  }
+}
+
