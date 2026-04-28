@@ -1,109 +1,118 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Babylonian GameDev Library — персонализированный агрегатор контента для специалистов игровой индустрии."
-    />
-    <title>Babylonian GameDev Library — BGDLibrary</title>
-    <link rel="stylesheet" href="./src/styles/main.css" />
-  </head>
-  <body class="theme-c64">
-    <a class="skip" href="#content">Перейти к контенту</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Babylonian GameDev Library — персонализированный агрегатор контента для специалистов игровой индустрии." />
+  <title>Babylonian GameDev Library — BGDLibrary</title>
+  <link rel="stylesheet" href="./src/styles/main.css" />
+</head>
+<body>
+  <a class="skip" href="#content">Перейти к контенту</a>
 
-    <header class="topbar">
-      <div class="wrap topbar__inner">
-        <div class="brand">
-          <div class="brand__mark" aria-hidden="true">BGD</div>
-          <div class="brand__text">
-            <div class="brand__title">Babylonian GameDev Library</div>
-            <div class="brand__subtitle muted">BGDLibrary</div>
-          </div>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="./index.html">
+        <div class="brand__mark" aria-hidden="true">BGD</div>
+        <div class="brand__text">
+          <div class="brand__title">Babylonian GameDev Library</div>
+          <div class="brand__subtitle muted">bgdlibrary · v0.1</div>
         </div>
+      </a>
+      <nav class="nav" aria-label="Навигация">
+        <a class="nav__link is-active" href="./index.html">Главная</a>
+        <a class="nav__link" href="./app.html">Лента</a>
+        <a class="nav__link" href="./about.html">О проекте</a>
+      </nav>
+      <button class="theme-toggle" id="theme-btn" aria-label="Переключить тему" title="Тема">☀</button>
+    </div>
+  </header>
 
-        <nav class="nav" aria-label="Навигация">
-          <a class="nav__link" href="./app.html">Лента</a>
-          <a class="nav__link" href="./about.html">О проекте</a>
-        </nav>
-      </div>
-    </header>
-
-    <main id="content" class="wrap">
-      <section class="hero">
+  <main id="content">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero__eyebrow">Babylonian GameDev Library</div>
         <h1 class="hero__title">
-          Персонализированный агрегатор контента для игровой индустрии
+          Весь геймдев<br>
+          в одной <em>ленте</em>
         </h1>
-        <p class="hero__lead muted">
-          Туториалы, новости движков, вакансии и инструменты — в одной ленте с умными
-          фильтрами.
+        <p class="hero__lead">
+          Туториалы, новости движков, вакансии и инструменты — агрегированы, персонализированы и доступны офлайн.
         </p>
-
         <div class="hero__cta">
-          <a class="btn btn--primary" href="./app.html">Открыть ленту</a>
-          <a class="btn" href="./about.html">Подробнее</a>
-          <span class="hero__hint muted">Прототип интерфейса и мини‑API.</span>
+          <a class="btn btn--primary" href="./app.html">Открыть ленту →</a>
+          <a class="btn" href="./about.html">О проекте</a>
+          <span class="hero__hint">MVP · Android + Web</span>
         </div>
-
         <div class="kpi">
           <div class="kpi__item">
-            <div class="kpi__value">1</div>
-            <div class="kpi__label muted">лента</div>
+            <div class="kpi__value">5+</div>
+            <div class="kpi__label">источников</div>
           </div>
           <div class="kpi__item">
             <div class="kpi__value">4</div>
-            <div class="kpi__label muted">категории</div>
+            <div class="kpi__label">категории</div>
           </div>
           <div class="kpi__item">
             <div class="kpi__value">∞</div>
-            <div class="kpi__label muted">источников</div>
+            <div class="kpi__label">контент</div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="panel">
-        <div class="panel__head">
-          <h2 class="panel__title">Зачем это нужно</h2>
-          <p class="panel__desc muted">
-            Чтобы не разрываться между десятками источников и вкладок: одна лента,
-            один язык интерфейса, умные фильтры и «чёткий сигнал».
-          </p>
-        </div>
-
+    <section class="section">
+      <div class="wrap">
+        <div class="section__label">Зачем это нужно</div>
+        <h2 class="section__title">Одна лента вместо десяти вкладок</h2>
+        <p class="section__desc">
+          Геймдев-разработчик тратит до 3 часов в день на ручной мониторинг источников. BGDLibrary решает это.
+        </p>
         <div class="grid">
           <div class="card">
+            <div class="card__accent"></div>
             <div class="card__title">Нормальная плотность</div>
-            <div class="card__text muted">
-              Лента как у взрослых: заголовок, источник, теги, краткое описание —
-              без «маркетингового шума».
-            </div>
+            <div class="card__text">Заголовок, источник, теги, краткий контекст — без маркетингового шума.</div>
           </div>
           <div class="card">
+            <div class="card__accent"></div>
             <div class="card__title">Фокус на профессии</div>
-            <div class="card__text muted">
-              Уровень, роль, движок, направление (rendering, gameplay, tools) —
-              фильтры под ежедневный рабочий ритм.
-            </div>
+            <div class="card__text">Фильтры по роли, движку и направлению — контент под ежедневный рабочий ритм.</div>
           </div>
           <div class="card">
-            <div class="card__title">Вакансии в контексте</div>
-            <div class="card__text muted">
-              Вакансии рядом с материалами по стеку и тематике, чтобы «учиться →
-              пробоваться → расти».
-            </div>
+            <div class="card__accent"></div>
+            <div class="card__title">Офлайн-доступ</div>
+            <div class="card__text">Сохраняй в избранное и читай без интернета. На Android и в браузере.</div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <footer class="footer muted">
-        <span>BGDLibrary — прототип структуры сайта.</span>
-        <span class="dot" aria-hidden="true">•</span>
+    <footer class="footer">
+      <div class="wrap" style="width:100%; display:flex; flex-wrap:wrap; align-items:center; gap:10px;">
+        <span class="footer__brand">BGD<span class="footer__accent">L</span>ibrary</span>
+        <span class="dot">•</span>
+        <span>Прототип структуры сайта</span>
+        <span class="dot">•</span>
         <span>
-          Страницы: <a class="link" href="./app.html">app</a> ·
-          <a class="link" href="./about.html">about</a>
+          <a class="link" href="./app.html">лента</a> ·
+          <a class="link" href="./about.html">о проекте</a>
         </span>
-      </footer>
-    </main>
-  </body>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const btn = document.getElementById('theme-btn');
+    const html = document.documentElement;
+    const stored = localStorage.getItem('bgd-theme');
+    if (stored) { html.dataset.theme = stored; btn.textContent = stored === 'dark' ? '☀' : '☾'; }
+    btn.addEventListener('click', () => {
+      const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+      html.dataset.theme = next;
+      localStorage.setItem('bgd-theme', next);
+      btn.textContent = next === 'dark' ? '☀' : '☾';
+    });
+  </script>
+</body>
 </html>

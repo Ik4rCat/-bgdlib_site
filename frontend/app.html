@@ -1,122 +1,114 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="BGDLibrary — лента с фильтрами." />
-    <title>BGDLibrary — Лента</title>
-    <link rel="stylesheet" href="./src/styles/main.css" />
-    <link rel="stylesheet" href="./src/styles/app.css" />
-  </head>
-  <body class="app theme-c64">
-    <a class="skip" href="#content">Перейти к контенту</a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="BGDLibrary — лента с фильтрами." />
+  <title>BGDLibrary — Лента</title>
+  <link rel="stylesheet" href="./src/styles/main.css" />
+  <link rel="stylesheet" href="./src/styles/app.css" />
+</head>
+<body class="app">
+  <a class="skip" href="#content">Перейти к контенту</a>
 
-    <div class="rail" aria-label="Панель">
-      <a class="rail__btn" href="./index.html" title="Главная">⌂</a>
-      <a class="rail__btn is-active" href="./app.html" title="Лента">≡</a>
-      <a class="rail__btn" href="./about.html" title="О проекте">?</a>
-      <span class="rail__spacer" aria-hidden="true"></span>
-      <a class="rail__btn" href="https://cyberspace.online/feed" title="Вдохновение">↗</a>
+  <div class="rail" aria-label="Панель">
+    <a class="rail__btn" href="./index.html" title="Главная">⌂</a>
+    <a class="rail__btn is-active" href="./app.html" title="Лента">≡</a>
+    <a class="rail__btn" href="./about.html" title="О проекте">?</a>
+    <span class="rail__spacer" aria-hidden="true"></span>
+    <a class="rail__btn" href="https://github.com/Ik4rCat/-BGD_Library_site" title="GitHub">↗</a>
+  </div>
+
+  <header class="topbar topbar--app">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="./index.html">
+        <div class="brand__mark" aria-hidden="true">BGD</div>
+        <div class="brand__text">
+          <div class="brand__title">BGDLibrary</div>
+          <div class="brand__subtitle muted">feed · v0.1</div>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Навигация">
+        <a class="nav__link" href="./index.html">Главная</a>
+        <a class="nav__link is-active" href="./app.html">Лента</a>
+        <a class="nav__link" href="./about.html">О проекте</a>
+      </nav>
+      <button class="theme-toggle" id="theme-btn" aria-label="Переключить тему">☀</button>
     </div>
+  </header>
 
-    <header class="topbar topbar--app">
-      <div class="wrap topbar__inner">
-        <div class="brand">
-          <div class="brand__mark" aria-hidden="true">BGD</div>
-          <div class="brand__text">
-            <div class="brand__title">BGDLibrary</div>
-            <div class="brand__subtitle muted">cyber feed // v0.1</div>
-          </div>
-        </div>
-
-        <nav class="nav" aria-label="Навигация">
-          <a class="nav__link" href="./index.html">Главная</a>
-          <a class="nav__link" href="./about.html">О проекте</a>
-        </nav>
+  <main id="content" class="wrap appwrap">
+    <section class="panel">
+      <div class="panel__head">
+        <div class="boot__title">CYBERFEED</div>
+        <div class="boot__meta muted">api: <span id="api-status">probing…</span></div>
       </div>
-    </header>
-
-    <main id="content" class="wrap appwrap">
-      <section class="boot panel">
-        <div class="panel__head">
-          <div class="boot__title">CYBERFEED</div>
-          <div class="boot__meta muted">
-            api: <span id="api-status">probing…</span>
-          </div>
-        </div>
-        <pre class="boot__log muted" aria-label="Загрузка">
+      <pre class="boot__log muted" aria-label="Загрузка">
 [ OK ] init ui
 [ OK ] connect api
-[ OK ] mount filters
-        </pre>
-      </section>
+[ OK ] mount filters</pre>
+    </section>
 
-      <section class="panel">
-        <div class="panel__head panel__head--row">
-          <div>
-            <h1 class="panel__title">Лента</h1>
-            <p class="panel__desc muted" id="feed-subtitle">
-              Демо‑лента. При наличии backend используем `/api/feed`.
-            </p>
+    <section class="panel">
+      <div class="panel__head panel__head--row">
+        <div>
+          <h1 class="panel__title">Лента</h1>
+          <p class="panel__desc muted" id="feed-subtitle">Демо‑лента. При наличии backend используем `/api/feed`.</p>
+        </div>
+        <div class="panel__meta muted"><span id="feed-count">0</span> items</div>
+      </div>
+
+      <div class="appgrid">
+        <aside class="sidebar">
+          <div class="filters__group">
+            <div class="filters__label">Категории</div>
+            <div class="chips" data-filter-group="category">
+              <button class="chip is-active" type="button" data-value="tutorial">Туториалы</button>
+              <button class="chip is-active" type="button" data-value="engine">Движки</button>
+              <button class="chip is-active" type="button" data-value="jobs">Вакансии</button>
+              <button class="chip is-active" type="button" data-value="tools">Инструменты</button>
+            </div>
           </div>
-          <div class="panel__meta muted"><span id="feed-count">0</span> items</div>
-        </div>
-
-        <div class="appgrid">
-          <aside class="sidebar">
-            <div class="filters__group">
-              <div class="filters__label muted">Категории</div>
-              <div class="chips" data-filter-group="category">
-                <button class="chip is-active" type="button" data-value="tutorial">
-                  Туториалы
-                </button>
-                <button class="chip is-active" type="button" data-value="engine">
-                  Движки
-                </button>
-                <button class="chip is-active" type="button" data-value="jobs">
-                  Вакансии
-                </button>
-                <button class="chip is-active" type="button" data-value="tools">
-                  Инструменты
-                </button>
-              </div>
+          <div class="filters__group">
+            <div class="filters__label">Теги</div>
+            <div class="chips" data-filter-group="tag">
+              <button class="chip" type="button" data-value="unreal">unreal</button>
+              <button class="chip" type="button" data-value="unity">unity</button>
+              <button class="chip" type="button" data-value="godot">godot</button>
+              <button class="chip" type="button" data-value="render">render</button>
+              <button class="chip" type="button" data-value="tools">tools</button>
+              <button class="chip" type="button" data-value="junior">junior</button>
             </div>
-
-            <div class="filters__group">
-              <div class="filters__label muted">Теги</div>
-              <div class="chips" data-filter-group="tag">
-                <button class="chip" type="button" data-value="unreal">unreal</button>
-                <button class="chip" type="button" data-value="unity">unity</button>
-                <button class="chip" type="button" data-value="godot">godot</button>
-                <button class="chip" type="button" data-value="render">render</button>
-                <button class="chip" type="button" data-value="tools">tools</button>
-                <button class="chip" type="button" data-value="junior">junior</button>
-              </div>
+          </div>
+          <div class="filters__group">
+            <div class="filters__label">Действия</div>
+            <div class="filters__actions">
+              <button class="btn btn--ghost" type="button" data-action="clear">reset</button>
+              <button class="btn btn--ghost" type="button" data-action="only-jobs">jobs only</button>
+              <button class="btn btn--primary" type="button" data-action="reload">reload</button>
             </div>
+          </div>
+        </aside>
 
-            <div class="filters__group">
-              <div class="filters__label muted">Действия</div>
-              <div class="filters__actions">
-                <button class="btn btn--ghost" type="button" data-action="clear">
-                  reset
-                </button>
-                <button class="btn btn--ghost" type="button" data-action="only-jobs">
-                  jobs only
-                </button>
-                <button class="btn btn--primary" type="button" data-action="reload">
-                  reload
-                </button>
-              </div>
-            </div>
-          </aside>
+        <section class="mainpane">
+          <ol class="feed" id="feed-list" aria-label="Лента материалов"></ol>
+        </section>
+      </div>
+    </section>
+  </main>
 
-          <section class="mainpane">
-            <ol class="feed" id="feed-list" aria-label="Лента материалов"></ol>
-          </section>
-        </div>
-      </section>
-    </main>
-
-    <script type="module" src="./src/scripts/app.js"></script>
-  </body>
+  <script>
+    const btn = document.getElementById('theme-btn');
+    const html = document.documentElement;
+    const stored = localStorage.getItem('bgd-theme');
+    if (stored) { html.dataset.theme = stored; btn.textContent = stored === 'dark' ? '☀' : '☾'; }
+    btn.addEventListener('click', () => {
+      const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+      html.dataset.theme = next;
+      localStorage.setItem('bgd-theme', next);
+      btn.textContent = next === 'dark' ? '☀' : '☾';
+    });
+  </script>
+  <script type="module" src="./src/scripts/app.js"></script>
+</body>
 </html>

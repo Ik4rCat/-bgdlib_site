@@ -1,116 +1,61 @@
-:root {
-  --cy: rgba(255, 255, 255, 0.92);
-}
-
-body.app {
-  font-family: var(--mono);
-}
-
-.topbar--app .brand__mark {
-  border-color: color-mix(in oklab, var(--cy) 70%, var(--border));
-  background: color-mix(in oklab, var(--panel) 70%, transparent);
-}
+body.app { font-family: var(--sans); }
 
 .appwrap {
-  padding-top: 16px;
-  padding-left: 56px;
+  padding-top: 0;
+  padding-left: 52px;
 }
 
-.boot__title {
-  font-family: var(--mono);
-  font-weight: 900;
-  letter-spacing: 0.6px;
+.rail {
+  position: fixed; top: 0; left: 0; bottom: 0;
+  width: 48px;
+  border-right: 1px solid var(--border);
+  background: var(--surface);
+  display: grid; align-content: start;
+  gap: 4px; padding: 8px 6px;
+  z-index: 10;
 }
 
-.boot__meta {
-  font-family: var(--mono);
-  font-size: 12px;
+.rail__btn {
+  width: 36px; height: 36px;
+  display: grid; place-items: center;
+  border: 1.5px solid transparent;
+  color: var(--muted); font-size: 16px;
+  transition: all .12s;
 }
+.rail__btn:hover {
+  border-color: var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+}
+.rail__btn.is-active {
+  border-color: var(--accent-border);
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+.rail__spacer { height: 8px; }
 
-.boot__log {
-  margin: 0;
-  padding: 12px 14px 14px;
-  border-top: 1px solid var(--border);
-  font-family: var(--mono);
-  font-size: 12px;
-  line-height: 1.55;
-  white-space: pre-wrap;
-}
+.topbar--app .brand__mark { background: var(--accent); }
 
 .appgrid {
   border-top: 1px solid var(--border);
   display: grid;
-  grid-template-columns: 320px 1fr;
+  grid-template-columns: 280px 1fr;
   min-height: 560px;
 }
 
 .sidebar {
-  padding: 14px;
+  padding: 16px;
   border-right: 1px solid var(--border);
-  display: grid;
-  align-content: start;
-  gap: 12px;
+  display: grid; align-content: start; gap: 10px;
+  background: var(--surface);
 }
 
-.mainpane {
-  min-width: 0;
-}
-
-.mainpane .feed {
-  border-top: 0;
-}
-
-.rail {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  width: 44px;
-  border-right: 1px solid var(--border);
-  background: color-mix(in oklab, var(--bg) 86%, transparent);
-  display: grid;
-  align-content: start;
-  gap: 8px;
-  padding: 10px 8px;
-}
-
-.rail__btn {
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  border-radius: 8px;
-  border: 1px solid transparent;
-  color: rgba(255, 255, 255, 0.86);
-}
-
-.rail__btn:hover {
-  border-color: var(--border);
-  background: var(--panel);
-}
-
-.rail__btn.is-active {
-  border-color: var(--border);
-  background: var(--panel-2);
-}
-
-.rail__spacer {
-  height: 8px;
-}
+.mainpane { min-width: 0; background: var(--surface); }
+.mainpane .feed { border-top: none; }
 
 @media (max-width: 960px) {
-  .appwrap {
-    padding-left: 22px;
-  }
-  .rail {
-    display: none;
-  }
-  .appgrid {
-    grid-template-columns: 1fr;
-  }
-  .sidebar {
-    border-right: 0;
-    border-bottom: 1px solid var(--border);
-  }
+  .appwrap { padding-left: 16px; }
+  .rail { display: none; }
+  .appgrid { grid-template-columns: 1fr; }
+  .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
 }
-
