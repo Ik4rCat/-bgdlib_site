@@ -20,42 +20,42 @@
         </div>
       </a>
       <nav class="nav" aria-label="Навигация">
-        <a class="nav__link" href="./index.html">Главная</a>
-        <a class="nav__link is-active" href="./about.html">О проекте</a>
+        <a class="nav__link" href="./index.html" data-i18n="nav_home">Главная</a>
+        <a class="nav__link is-active" href="./about.html" data-i18n="nav_about">О проекте</a>
       </nav>
-      <button class="theme-toggle" id="theme-btn" aria-label="Переключить тему">☀</button>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <button class="lang-toggle" id="lang-btn" aria-label="Switch language">RU</button>
+        <button class="theme-toggle" id="theme-btn" aria-label="Переключить тему">☀</button>
+      </div>
     </div>
   </header>
 
   <main id="content">
     <section class="section">
       <div class="wrap">
-        <div class="section__label">О проекте</div>
-        <h1 class="section__title">Babylonian GameDev Library</h1>
-        <p class="section__desc">
-          BGDLibrary — персонализированный агрегатор контента для специалистов игровой индустрии.
-          Туториалы, новости движков, вакансии и инструменты в одной ленте с умными фильтрами.
+        <div class="section__label" data-i18n="a_label">О проекте</div>
+        <h1 class="section__title" data-i18n="a_title">Babylonian GameDev Library</h1>
+        <p class="section__desc" data-i18n="a_desc1">
+          BGDLibrary — персонализированный агрегатор контента для специалистов игровой индустрии. Туториалы, новости движков, вакансии и инструменты в одной ленте с умными фильтрами.
         </p>
-        <p class="section__desc">
-          Проект решает реальную проблему: геймдев-разработчик тратит до 3 часов в день на мониторинг
-          десятков разрозненных источников. BGDLibrary собирает всё в один персонализированный фид —
-          с учётом роли, движка и уровня пользователя.
+        <p class="section__desc" data-i18n="a_desc2">
+          Проект решает реальную проблему: геймдев-разработчик тратит до 3 часов в день на мониторинг десятков разрозненных источников. BGDLibrary собирает всё в один персонализированный фид — с учётом роли, движка и уровня пользователя.
         </p>
         <div class="grid" style="margin-top:32px;">
           <div class="card">
             <div class="card__accent"></div>
-            <div class="card__title">Что в MVP</div>
-            <div class="card__text">Агрегация RSS-источников, лента с категориями, фильтры по движку и роли, офлайн-избранное, авторизация через Firebase.</div>
+            <div class="card__title" data-i18n="a_c1_title">Что в MVP</div>
+            <div class="card__text" data-i18n="a_c1_text">Агрегация RSS-источников, лента с категориями, фильтры по движку и роли, офлайн-избранное, авторизация через Firebase.</div>
           </div>
           <div class="card">
             <div class="card__accent"></div>
-            <div class="card__title">Технологии</div>
-            <div class="card__text">Android: Kotlin + Jetpack Compose. Backend: C# ASP.NET Core + RSS-парсинг. Web: HTML / CSS / JS.</div>
+            <div class="card__title" data-i18n="a_c2_title">Технологии</div>
+            <div class="card__text" data-i18n="a_c2_text">Android: Kotlin + Jetpack Compose. Backend: C# ASP.NET Core + RSS-парсинг. Web: HTML / CSS / JS.</div>
           </div>
           <div class="card">
             <div class="card__accent"></div>
-            <div class="card__title">Сроки</div>
-            <div class="card__text">Учебный проект, сдача — июнь 2025. Разработка соло. IT TOP, Санкт-Петербург.</div>
+            <div class="card__title" data-i18n="a_c3_title">Сроки</div>
+            <div class="card__text" data-i18n="a_c3_text">Учебный проект, сдача — июнь 2025. Разработка соло. IT TOP, Санкт-Петербург.</div>
           </div>
         </div>
       </div>
@@ -63,15 +63,13 @@
 
     <section class="section">
       <div class="wrap">
-        <div class="section__label">Гипотеза</div>
-        <h2 class="section__title">Если убрать информационный хаос —<br>разработчик работает эффективнее</h2>
-        <p class="section__desc">
-          Геймдев-разработчики тратят 1.5–3 часа в день на поиск профессионального контента
-          из-за его фрагментации по платформам.
+        <div class="section__label" data-i18n="hyp_label">Гипотеза</div>
+        <h2 class="section__title" data-i18n-html="hyp_title">Если убрать информационный хаос —<br>разработчик работает эффективнее</h2>
+        <p class="section__desc" data-i18n="hyp_desc1">
+          Геймдев-разработчики тратят 1.5–3 часа в день на поиск профессионального контента из-за его фрагментации по платформам.
         </p>
-        <p class="section__desc">
-          Персонализированный агрегатор с фильтрами по роли, движку и уровню сократит это время
-          на 50%+ и снизит когнитивную нагрузку при ежедневном мониторинге индустрии.
+        <p class="section__desc" data-i18n="hyp_desc2">
+          Персонализированный агрегатор с фильтрами по роли, движку и уровню сократит это время на 50%+ и снизит когнитивную нагрузку при ежедневном мониторинге индустрии.
         </p>
       </div>
     </section>
@@ -80,11 +78,11 @@
       <div class="wrap" style="width:100%; display:flex; flex-wrap:wrap; align-items:center; gap:10px;">
         <span class="footer__brand">BGD<span class="footer__accent">L</span>ibrary</span>
         <span class="dot">·</span>
-        <span>Проект в разработке</span>
+        <span data-i18n="footer_status">Проект в разработке</span>
         <span class="dot">·</span>
-        <span>2025</span>
+        <span>2026</span>
         <span class="dot">·</span>
-        <span><a class="link" href="./index.html">главная</a> · <a class="link" href="./about.html">о проекте</a></span>
+        <span><a class="link" href="./index.html" data-i18n="link_home">главная</a> · <a class="link" href="./about.html" data-i18n="link_about">о проекте</a></span>
       </div>
     </footer>
   </main>
@@ -101,5 +99,6 @@
       btn.textContent = next === 'dark' ? '☀' : '☾';
     });
   </script>
+  <script src="./src/scripts/i18n.js"></script>
 </body>
 </html>

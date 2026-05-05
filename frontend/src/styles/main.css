@@ -149,15 +149,20 @@
    .nav__link:hover { color: var(--text); }
    .nav__link.is-active { color: var(--accent); border-bottom-color: var(--accent); }
    
-   /* Theme toggle */
-   .theme-toggle {
+   /* Theme / lang toggles */
+   .theme-toggle, .lang-toggle {
      width: 36px; height: 36px;
      display: grid; place-items: center;
      border: 1.5px solid var(--border);
-     background: transparent; font-size: 16px;
+     background: transparent;
      transition: background .15s;
    }
-   .theme-toggle:hover { background: var(--surface-2); }
+   .theme-toggle:hover, .lang-toggle:hover { background: var(--surface-2); }
+   .theme-toggle { font-size: 16px; }
+   .lang-toggle {
+     font-family: var(--mono); font-size: 11px;
+     font-weight: 700; letter-spacing: 0.05em;
+   }
    
    /* ── Hero ── */
    .hero {
