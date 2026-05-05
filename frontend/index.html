@@ -36,10 +36,12 @@
           в одной <em>ленте</em>
         </h1>
         <p class="hero__lead">
-          Туториалы, новости движков, вакансии и инструменты — агрегированы, персонализированы и доступны офлайн.
+          Туториалы, новости движков, вакансии и постмортемы —
+          агрегированы, отфильтрованы под твой стек и доступны офлайн.
+          Никаких лишних вкладок.
         </p>
         <div class="hero__cta">
-          <a class="btn btn--primary" href="./about.html">О проекте</a>
+          <a class="btn btn--primary" href="./about.html">О проекте →</a>
         </div>
         <div class="kpi">
           <div class="kpi__item">
@@ -51,8 +53,8 @@
             <div class="kpi__label">категории</div>
           </div>
           <div class="kpi__item">
-            <div class="kpi__value">∞</div>
-            <div class="kpi__label">контент</div>
+            <div class="kpi__value">−50%</div>
+            <div class="kpi__label">времени на поиск</div>
           </div>
         </div>
       </div>
@@ -63,23 +65,73 @@
         <div class="section__label">Зачем это нужно</div>
         <h2 class="section__title">Одна лента вместо десяти вкладок</h2>
         <p class="section__desc">
-          Геймдев-разработчик тратит до 3 часов в день на ручной мониторинг источников. BGDLibrary решает это.
+          Геймдев-разработчик тратит до 3 часов в день на ручной мониторинг
+          Unity Blog, GDC Vault, Reddit, Telegram-каналов и job-бордов.
+          BGDLibrary решает это одним персонализированным фидом.
         </p>
         <div class="grid">
           <div class="card">
             <div class="card__accent"></div>
-            <div class="card__title">Нормальная плотность</div>
-            <div class="card__text">Заголовок, источник, теги, краткий контекст — без маркетингового шума.</div>
+            <div class="card__title">Без шума</div>
+            <div class="card__text">Заголовок, источник, теги — без маркетинговых баннеров и кликбейта. Только то, что реально полезно.</div>
           </div>
           <div class="card">
             <div class="card__accent"></div>
-            <div class="card__title">Фокус на профессии</div>
-            <div class="card__text">Фильтры по роли, движку и направлению — контент под ежедневный рабочий ритм.</div>
+            <div class="card__title">Под твой стек</div>
+            <div class="card__text">Фильтры по роли, движку и типу материала. Учишь Godot — видишь Godot. Ищешь работу — видишь вакансии.</div>
           </div>
           <div class="card">
             <div class="card__accent"></div>
             <div class="card__title">Офлайн-доступ</div>
-            <div class="card__text">Сохраняй в избранное и читай без интернета. На Android и в браузере.</div>
+            <div class="card__text">Сохраняй материалы и читай без интернета. В метро, между парами, в дороге.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section__label">Целевая аудитория</div>
+        <h2 class="section__title">Сделано для людей в геймдеве</h2>
+        <div class="grid">
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title">Студенты</div>
+            <div class="card__text">Изучаешь разработку игр — фид настроен под твой движок и уровень. Туториалы и постмортемы вместо хаоса в закладках.</div>
+          </div>
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title">Инди-разработчики</div>
+            <div class="card__text">Соло или маленькая команда. Следишь за обновлениями движка, ищешь инструменты и смотришь вакансии — всё в одном месте.</div>
+          </div>
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title">Специалисты индустрии</div>
+            <div class="card__text">Программисты, геймдизайнеры, технические художники. Актуальный контент по профессии без информационного перегруза.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section__label">Текущий статус</div>
+        <h2 class="section__title">В активной разработке</h2>
+        <p class="section__desc">
+          BGDLibrary — учебный проект, который растёт в реальный продукт.
+          Android-приложение на Kotlin + Jetpack Compose, веб-лендинг,
+          C# backend с RSS-агрегацией.
+        </p>
+        <div class="grid">
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title">Android-приложение</div>
+            <div class="card__text">Kotlin + Jetpack Compose. Лента, фильтры, офлайн-избранное, авторизация. Статус: в разработке</div>
+          </div>
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title">Веб-версия</div>
+            <div class="card__text">Лендинг и веб-лента на базе того же API. Статус: в разработке</div>
           </div>
         </div>
       </div>
@@ -88,12 +140,10 @@
     <footer class="footer">
       <div class="wrap" style="width:100%; display:flex; flex-wrap:wrap; align-items:center; gap:10px;">
         <span class="footer__brand">BGD<span class="footer__accent">L</span>ibrary</span>
-        <span class="dot">•</span>
-        <span>Прототип структуры сайта</span>
-        <span class="dot">•</span>
-        <span>
-          <a class="link" href="./about.html">о проекте</a>
-        </span>
+        <span class="dot">·</span>
+        <span>Проект в разработке</span>
+        <span class="dot">·</span>
+        <span>2025</span>
       </div>
     </footer>
   </main>
