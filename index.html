@@ -1,23 +1,161 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>BGD Library</title>
-    <link rel="stylesheet" href="../src/styles/styles.css" />
-  </head>
-  <body>
-    <main class="container">
-      <header class="header">
-        <h1>BGD Library</h1>
-        <p class="muted">Пустой каркас сайта. Начните с `src/pages/home.html`.</p>
-      </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Babylonian GameDev Library — персонализированный агрегатор контента для специалистов игровой индустрии." />
+  <title>Babylonian GameDev Library — BGDLibrary</title>
+  <link rel="stylesheet" href="./src/styles/main.css" />
+</head>
+<body>
+  <a class="skip" href="#content">Перейти к контенту</a>
 
-      <section id="app" class="card">
-        <p>Заглушка интерфейса.</p>
-      </section>
-    </main>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="./index.html">
+        <div class="brand__mark" aria-hidden="true">BGD</div>
+        <div class="brand__text">
+          <div class="brand__title">Babylonian GameDev Library</div>
+          <div class="brand__subtitle muted">bgdlibrary · v0.1</div>
+        </div>
+      </a>
+      <nav class="nav" aria-label="Навигация">
+        <a class="nav__link is-active" href="./index.html" data-i18n="nav_home">Главная</a>
+        <a class="nav__link" href="./about.html" data-i18n="nav_about">О проекте</a>
+      </nav>
+      <div style="display:flex;gap:6px;align-items:center;">
+        <button class="lang-toggle" id="lang-btn" aria-label="Switch language">RU</button>
+        <button class="theme-toggle" id="theme-btn" aria-label="Переключить тему" title="Тема">☀</button>
+      </div>
+    </div>
+  </header>
 
-    <script type="module" src="../src/scripts/main.js"></script>
-  </body>
+  <main id="content">
+    <section class="hero">
+      <div class="wrap">
+        <div class="hero__eyebrow">Babylonian GameDev Library</div>
+        <h1 class="hero__title" data-i18n-html="hero_title">
+          Весь геймдев<br>в одной <em>ленте</em>
+        </h1>
+        <p class="hero__lead" data-i18n="hero_lead">
+          Туториалы, новости движков, вакансии и постмортемы — агрегированы, отфильтрованы под твой стек и доступны офлайн. Никаких лишних вкладок.
+        </p>
+        <div class="hero__cta">
+          <a class="btn btn--primary" href="./about.html" data-i18n="hero_cta">О проекте →</a>
+        </div>
+        <div class="kpi">
+          <div class="kpi__item">
+            <div class="kpi__value">5+</div>
+            <div class="kpi__label" data-i18n="kpi_sources">источников</div>
+          </div>
+          <div class="kpi__item">
+            <div class="kpi__value">4</div>
+            <div class="kpi__label" data-i18n="kpi_categories">категории</div>
+          </div>
+          <div class="kpi__item">
+            <div class="kpi__value">−50%</div>
+            <div class="kpi__label" data-i18n="kpi_time">времени на поиск</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section__label" data-i18n="s1_label">Зачем это нужно</div>
+        <h2 class="section__title" data-i18n="s1_title">Одна лента вместо десяти вкладок</h2>
+        <p class="section__desc" data-i18n="s1_desc">
+          Геймдев-разработчик тратит до 3 часов в день на ручной мониторинг Unity Blog, GDC Vault, Reddit, Telegram-каналов и job-бордов. BGDLibrary решает это одним персонализированным фидом.
+        </p>
+        <div class="grid">
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title" data-i18n="s1_c1_title">Без шума</div>
+            <div class="card__text" data-i18n="s1_c1_text">Заголовок, источник, теги — без маркетинговых баннеров и кликбейта. Только то, что реально полезно.</div>
+          </div>
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title" data-i18n="s1_c2_title">Под твой стек</div>
+            <div class="card__text" data-i18n="s1_c2_text">Фильтры по роли, движку и типу материала. Учишь Godot — видишь Godot. Ищешь работу — видишь вакансии.</div>
+          </div>
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title" data-i18n="s1_c3_title">Офлайн-доступ</div>
+            <div class="card__text" data-i18n="s1_c3_text">Сохраняй материалы и читай без интернета. В метро, между парами, в дороге.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section__label" data-i18n="s2_label">Целевая аудитория</div>
+        <h2 class="section__title" data-i18n="s2_title">Сделано для людей в геймдеве</h2>
+        <div class="grid">
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title" data-i18n="s2_c1_title">Студенты</div>
+            <div class="card__text" data-i18n="s2_c1_text">Изучаешь разработку игр — фид настроен под твой движок и уровень. Туториалы и постмортемы вместо хаоса в закладках.</div>
+          </div>
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title" data-i18n="s2_c2_title">Инди-разработчики</div>
+            <div class="card__text" data-i18n="s2_c2_text">Соло или маленькая команда. Следишь за обновлениями движка, ищешь инструменты и смотришь вакансии — всё в одном месте.</div>
+          </div>
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title" data-i18n="s2_c3_title">Специалисты индустрии</div>
+            <div class="card__text" data-i18n="s2_c3_text">Программисты, геймдизайнеры, технические художники. Актуальный контент по профессии без информационного перегруза.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="section__label" data-i18n="s3_label">Текущий статус</div>
+        <h2 class="section__title" data-i18n="s3_title">В активной разработке</h2>
+        <p class="section__desc" data-i18n="s3_desc">
+          BGDLibrary — учебный проект, который растёт в реальный продукт. Android-приложение на Kotlin + Jetpack Compose, веб-лендинг, C# backend с RSS-агрегацией.
+        </p>
+        <div class="grid">
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title" data-i18n="s3_c1_title">Android-приложение</div>
+            <div class="card__text" data-i18n="s3_c1_text">Kotlin + Jetpack Compose. Лента, фильтры, офлайн-избранное, авторизация. Статус: в разработке</div>
+          </div>
+          <div class="card">
+            <div class="card__accent"></div>
+            <div class="card__title" data-i18n="s3_c2_title">Веб-версия</div>
+            <div class="card__text" data-i18n="s3_c2_text">Лендинг и веб-лента на базе того же API. Статус: в разработке</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap" style="width:100%; display:flex; flex-wrap:wrap; align-items:center; gap:10px;">
+        <span class="footer__brand">BGD<span class="footer__accent">L</span>ibrary</span>
+        <span class="dot">·</span>
+        <span data-i18n="footer_status">Проект в разработке</span>
+        <span class="dot">·</span>
+        <span>2026</span>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const btn = document.getElementById('theme-btn');
+    const html = document.documentElement;
+    const stored = localStorage.getItem('bgd-theme');
+    if (stored) { html.dataset.theme = stored; btn.textContent = stored === 'dark' ? '☀' : '☾'; }
+    btn.addEventListener('click', () => {
+      const next = html.dataset.theme === 'dark' ? 'light' : 'dark';
+      html.dataset.theme = next;
+      localStorage.setItem('bgd-theme', next);
+      btn.textContent = next === 'dark' ? '☀' : '☾';
+    });
+  </script>
+  <script src="./src/scripts/i18n.js"></script>
+</body>
 </html>
