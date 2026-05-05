@@ -142,6 +142,12 @@ function clearGroup(groupName) {
 function setApiStatus(text) {
   const el = qs("#api-status");
   if (el) el.textContent = text;
+  const dot = qs("#api-dot");
+  if (dot) {
+    dot.classList.remove("ok", "fail");
+    if (text === "ok") dot.classList.add("ok");
+    else if (text === "fallback") dot.classList.add("fail");
+  }
 }
 
 function setSubtitle(text) {
