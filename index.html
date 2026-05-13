@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Babylonian GameDev Library — персонализированный агрегатор контента для специалистов игровой индустрии." />
   <title>Babylonian GameDev Library — BGDLibrary</title>
-  <link rel="stylesheet" href="./src/styles/main.css" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="i18n.js" />
 </head>
 <body>
   <a class="skip" href="#content">Перейти к контенту</a>
@@ -19,12 +20,7 @@
           <div class="brand__subtitle muted">bgdlibrary · v0.1</div>
         </div>
       </a>
-      <nav class="nav" aria-label="Навигация">
-        <a class="nav__link is-active" href="./index.html" data-i18n="nav_home">Главная</a>
-        <a class="nav__link" href="./about.html" data-i18n="nav_about">О проекте</a>
-      </nav>
       <div style="display:flex;gap:6px;align-items:center;">
-        <button class="lang-toggle" id="lang-btn" aria-label="Switch language">RU</button>
         <button class="theme-toggle" id="theme-btn" aria-label="Переключить тему" title="Тема">☀</button>
       </div>
     </div>
@@ -40,9 +36,6 @@
         <p class="hero__lead" data-i18n="hero_lead">
           Туториалы, новости движков, вакансии и постмортемы — агрегированы, отфильтрованы под твой стек и доступны офлайн. Никаких лишних вкладок.
         </p>
-        <div class="hero__cta">
-          <a class="btn btn--primary" href="./about.html" data-i18n="hero_cta">О проекте →</a>
-        </div>
         <div class="kpi">
           <div class="kpi__item">
             <div class="kpi__value">5+</div>
