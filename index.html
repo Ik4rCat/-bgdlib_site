@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BGDLib — Babylonian GameDev Library</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- AMBIENT LAYERS -->
+  <div class="bg-orb" aria-hidden="true"></div>
+  <div class="bg-scan" aria-hidden="true"></div>
+  <div class="bg-grain" aria-hidden="true"></div>
+  <div class="progress-bar" id="pb"></div>
+  <div class="palette-tag" id="palTag" aria-hidden="true"></div>
+
+  <!-- BOOT OVERLAY -->
+  <div id="boot-overlay" role="status" aria-label="System initializing">
+    <pre id="boot-logo" aria-hidden="true"></pre>
+    <div id="boot-body">
+      <div id="boot-left"></div>
+      <div id="boot-right"></div>
+    </div>
+    <div id="boot-skip" aria-hidden="true">[ PRESS ANY KEY TO SKIP ]</div>
+  </div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#" aria-label="BGDLib — Babylonian GameDev Library"><span class="acc">BGD</span>Lib</a>
+    <div class="nav-status" aria-hidden="true">IN DEV</div>
+    <div class="lang-toggle" role="group" aria-label="Language / Язык">
+      <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
+      <button class="lang-btn" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <span class="c-tl" aria-hidden="true"></span>
+    <span class="c-tr" aria-hidden="true"></span>
+    <span class="c-bl" aria-hidden="true"></span>
+    <span class="c-br" aria-hidden="true"></span>
+    <span class="ghost-label" aria-hidden="true">FEED</span>
+    <div class="hero-blue" aria-hidden="true"></div>
+    <div class="hero-shape s1" aria-hidden="true"></div>
+    <div class="hero-shape s2" aria-hidden="true"></div>
+    <div class="hero-shape s3" aria-hidden="true"></div>
+    <div class="hero-inner">
+      <pre id="ascii-logo" aria-label="BGDLib ASCII art logo"></pre>
+      <p class="hero-eyebrow" data-t="hero.eyebrow">SYS_001 // BGDLIB.FEED</p>
+      <div class="hero-title-wrap">
+        <h1 class="hero-title" data-t="hero.title">One feed.<br><em>All gamedev.</em></h1>
+        <div class="hero-title-clone" aria-hidden="true">One feed.<br><em>All gamedev.</em></div>
+      </div>
+      <div class="hero-rule" aria-hidden="true"></div>
+      <p class="hero-sub" data-t="hero.sub">30+ sources. One adaptive feed. Filtered by role, engine and expertise level. Signal, not noise.</p>
+      <a class="btn-primary" href="#cta" data-t="hero.cta">Notify on launch →</a>
+      <div class="hero-tagline" aria-hidden="true">
+        <span>30+ Sources</span>
+        <span class="ht-sep">//</span>
+        <span>Android + iOS</span>
+        <span class="ht-sep">//</span>
+        <span>In Dev</span>
+      </div>
+    </div>
+    <div class="hero-scroll" data-t="hero.scroll">Scroll</div>
+    <div class="hud-data" aria-hidden="true">
+      <span>SYS_FEED_v0.9</span>
+      <span>PLATFORM: ANDROID / IOS</span>
+      <span>STATUS: IN DEVELOPMENT</span>
+    </div>
+  </section>
+
+  <!-- SOURCE TICKER -->
+  <div class="ticker-wrap" aria-hidden="true">
+    <div class="ticker">
+      <span class="t-item">Unity Blog</span><span class="t-sep">//</span>
+      <span class="t-item">GDC Vault</span><span class="t-sep">//</span>
+      <span class="t-item">Gamasutra</span><span class="t-sep">//</span>
+      <span class="t-item">r/gamedev</span><span class="t-sep">//</span>
+      <span class="t-item">Godot Blog</span><span class="t-sep">//</span>
+      <span class="t-item">Unreal Dev</span><span class="t-sep">//</span>
+      <span class="t-item">80.lv</span><span class="t-sep">//</span>
+      <span class="t-item">Game Developer</span><span class="t-sep">//</span>
+      <span class="t-item">Itch.io Devlogs</span><span class="t-sep">//</span>
+      <span class="t-item">YouTube Channels</span><span class="t-sep">//</span>
+      <span class="t-item">Unity Blog</span><span class="t-sep">//</span>
+      <span class="t-item">GDC Vault</span><span class="t-sep">//</span>
+      <span class="t-item">Gamasutra</span><span class="t-sep">//</span>
+      <span class="t-item">r/gamedev</span><span class="t-sep">//</span>
+      <span class="t-item">Godot Blog</span><span class="t-sep">//</span>
+      <span class="t-item">Unreal Dev</span><span class="t-sep">//</span>
+      <span class="t-item">80.lv</span><span class="t-sep">//</span>
+      <span class="t-item">Game Developer</span><span class="t-sep">//</span>
+      <span class="t-item">Itch.io Devlogs</span><span class="t-sep">//</span>
+      <span class="t-item">YouTube Channels</span><span class="t-sep">//</span>
+    </div>
+  </div>
+
+  <div class="div-accent"></div>
+
+  <!-- PROBLEM -->
+  <section class="section reveal" id="problem">
+    <span class="c-tl" aria-hidden="true"></span>
+    <span class="c-tr" aria-hidden="true"></span>
+    <span class="c-bl" aria-hidden="true"></span>
+    <span class="c-br" aria-hidden="true"></span>
+    <span class="ghost-label" aria-hidden="true">PROBLEM</span>
+    <span class="s-label" data-t="problem.label">[ 002 ] // DIAGNOSTIC</span>
+    <h2 class="s-title" data-t="problem.title">Data overflow.<br>Zero filtering.</h2>
+    <p class="s-body" data-t="problem.body">Developers lose 3h/day scanning 30+ tabs manually — Unity Blog, GDC Vault, Reddit, YouTube, Telegram, job boards. No tool aggregates and filters all of it at once.</p>
+    <div class="problem-grid">
+      <div class="prob-cell reveal">
+        <div class="p-num lime" data-raw="30" data-suffix="+">30+</div>
+        <p class="p-text" data-t="problem.stat1"><strong>Data nodes to monitor daily</strong> — Unity, Godot, GDC Vault, Gamasutra, r/gamedev, job boards, Telegram.</p>
+      </div>
+      <div class="prob-cell reveal">
+        <div class="p-num" data-raw="3" data-suffix="h">3h</div>
+        <p class="p-text" data-t="problem.stat2"><strong>Hours of resource lost per day</strong> to manual scanning. Reallocate to shipping.</p>
+      </div>
+      <div class="prob-cell reveal">
+        <div class="p-num" data-raw="0" data-suffix="">0</div>
+        <p class="p-text" data-t="problem.stat3"><strong>NULL: tools that filter</strong> by role, engine, and expertise level simultaneously.</p>
+      </div>
+      <div class="prob-cell reveal">
+        <div class="p-num" data-raw="inf">∞</div>
+        <p class="p-text" data-t="problem.stat4"><strong>Signal/noise ratio: critical.</strong> A Unity engineer receives Houdini tutorials. System has no operator context.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-faint"></div>
+
+  <!-- FEATURES -->
+  <section class="section reveal" id="features">
+    <span class="c-tl" aria-hidden="true"></span>
+    <span class="c-tr" aria-hidden="true"></span>
+    <span class="c-bl" aria-hidden="true"></span>
+    <span class="c-br" aria-hidden="true"></span>
+    <span class="ghost-label" aria-hidden="true">FEATURES</span>
+    <span class="s-label" data-t="features.label">[ 003 ] // MODULES</span>
+    <h2 class="s-title" data-t="features.title">Configured<br>for your stack.</h2>
+    <p class="s-body" data-t="features.body">Six modules. Zero bloat. Precision output filtered to your workflow.</p>
+    <div class="feat-grid">
+      <article class="feat-card primary reveal">
+        <div class="f-primary-left">
+          <span class="f-seq">F–01</span>
+          <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="2 12 6 8 9 14 12 4 15 10 18 7 22 12"/></svg>
+          <div class="f-name" data-t="feat1.title">FEED.CORE</div>
+          <span class="f-badge" data-t="feat1.badge">// PRIMARY</span>
+        </div>
+        <div class="f-primary-right">
+          <p class="f-desc" data-t="feat1.desc">RSS aggregation from 30+ nodes: Unity, Godot, GDC, Gamasutra, r/gamedev. Single adaptive stream. One scroll.</p>
+        </div>
+      </article>
+      <article class="feat-card reveal">
+        <span class="f-seq">F–02</span>
+        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        <div class="f-name" data-t="feat2.title">ROLE FILTER</div>
+        <p class="f-desc" data-t="feat2.desc">Matrix filter by role (programmer / artist / designer), engine (Unity, Unreal, Godot), and content type (tutorial, news, postmortem, job). Stack-aware output.</p>
+      </article>
+      <article class="feat-card reveal">
+        <span class="f-seq">F–03</span>
+        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        <div class="f-name" data-t="feat3.title">LOCAL CACHE</div>
+        <p class="f-desc" data-t="feat3.desc">Articles written to local storage on save. Offline reads, zero re-fetches. Queue persists across sessions.</p>
+      </article>
+      <article class="feat-card reveal">
+        <span class="f-seq">F–04</span>
+        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <div class="f-name" data-t="feat4.title">AUTO TRANSLATE</div>
+        <p class="f-desc" data-t="feat4.desc">One-tap translation. Result cached server-side — no redundant API calls on repeated content.</p>
+      </article>
+      <article class="feat-card reveal">
+        <span class="f-seq">F–05</span>
+        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <div class="f-name" data-t="feat5.title">PUSH PROTOCOL</div>
+        <p class="f-desc" data-t="feat5.desc">Notifications fire only on matching subscription events. No noise. Selective delivery, not broadcast.</p>
+      </article>
+      <article class="feat-card last-wide reveal">
+        <span class="f-seq">F–06</span>
+        <svg class="f-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <div class="f-name" data-t="feat6.title">OPERATOR CONFIG</div>
+        <p class="f-desc" data-t="feat6.desc">Set role, engine, skill tier. Feed recalibrates. Config persists across sessions.</p>
+      </article>
+    </div>
+  </section>
+
+  <div class="div-faint"></div>
+
+  <!-- SOURCES -->
+  <section class="section reveal" id="sources">
+    <span class="c-tl" aria-hidden="true"></span>
+    <span class="c-tr" aria-hidden="true"></span>
+    <span class="c-bl" aria-hidden="true"></span>
+    <span class="c-br" aria-hidden="true"></span>
+    <span class="ghost-label" aria-hidden="true">SOURCES</span>
+    <span class="s-label" data-t="sources.label">[ 004 ] // DATA NODES</span>
+    <h2 class="s-title" data-t="sources.title">All nodes.<br>One endpoint.</h2>
+    <p class="s-body" data-t="sources.body">BGDLib aggregates 30+ active data nodes — every major channel where gamedev knowledge is published.</p>
+    <div class="src-cloud" id="srcCloud" role="list">
+      <div class="src-tag hi" role="listitem">Unity Blog</div>
+      <div class="src-tag hi" role="listitem">GDC Vault</div>
+      <div class="src-tag hi" role="listitem">Gamasutra / GDC</div>
+      <div class="src-tag hi" role="listitem">r/gamedev</div>
+      <div class="src-tag hi" role="listitem">Godot Blog</div>
+      <div class="src-tag" role="listitem">Unreal Dev</div>
+      <div class="src-tag" role="listitem">80.lv</div>
+      <div class="src-tag" role="listitem">Game Developer</div>
+      <div class="src-tag" role="listitem">Itch.io Devlogs</div>
+      <div class="src-tag" role="listitem">YouTube Channels</div>
+      <div class="src-tag" role="listitem" data-t="sources.more">+ nodes pending</div>
+    </div>
+  </section>
+
+  <div class="div-accent"></div>
+
+  <!-- CTA -->
+  <div class="cta-section reveal" id="cta">
+    <span class="c-tl" aria-hidden="true"></span>
+    <span class="c-tr" aria-hidden="true"></span>
+    <span class="c-bl" aria-hidden="true"></span>
+    <span class="c-br" aria-hidden="true"></span>
+    <span class="ghost-label" aria-hidden="true">LAUNCH</span>
+    <div class="cta-ghost" aria-hidden="true">2026</div>
+    <div class="cta-inner">
+      <span class="s-label" data-t="cta.label">[ 005 ] // STATUS: PENDING</span>
+      <h2 class="cta-title" data-t="cta.title">Zero noise.<br><em>Full signal.</em></h2>
+      <p class="cta-sub" data-t="cta.sub">BGDLib is in active development. Target deployment: Android + iOS. ETA 2026.</p>
+      <div class="platforms">
+        <div class="plat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9a7 7 0 0 1 14 0v6a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/><path d="M8 4 10 8M16 4 14 8"/><line x1="9" y1="13" x2="9" y2="15"/><line x1="15" y1="13" x2="15" y2="15"/></svg>
+          <span data-t="cta.android">Android</span>
+        </div>
+        <div class="plat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="9" y1="7" x2="15" y2="7"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/></svg>
+          <span data-t="cta.ios">iOS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="foot-logo"><span class="acc">BGD</span>Lib</div>
+    <div class="foot-copy" data-t="footer.copy">© 2026 Babylonian GameDev Library</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
