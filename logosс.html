@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BGDLib — Logo Showcase</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #090909;
+    --accent: #c0fc04;
+    --text2: #888880;
+    --border: rgba(255,255,255,0.07);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--accent);
+    font-family: 'Courier New', 'Lucida Console', monospace;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 16px;
+    gap: 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* grid bg */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* scan lines */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0,0,0,0.12) 2px,
+      rgba(0,0,0,0.12) 4px
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── header ── */
+  .header {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+  }
+  .header .sys-label {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--text2);
+    margin-bottom: 4px;
+  }
+  .header .title {
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    opacity: 0.5;
+  }
+
+  /* ── logo frame ── */
+  .logo-frame {
+    position: relative;
+    z-index: 1;
+    padding: 40px 48px;
+    border: 1px solid var(--border);
+    background: rgba(0,0,0,0.4);
+    min-width: min(900px, 95vw);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* corner brackets */
+  .logo-frame .c-tl, .logo-frame .c-tr,
+  .logo-frame .c-bl, .logo-frame .c-br {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-color: var(--accent);
+    border-style: solid;
+    opacity: 0.6;
+  }
+  .logo-frame .c-tl { top: -1px; left: -1px;  border-width: 1px 0 0 1px; }
+  .logo-frame .c-tr { top: -1px; right: -1px; border-width: 1px 1px 0 0; }
+  .logo-frame .c-bl { bottom: -1px; left: -1px;  border-width: 0 0 1px 1px; }
+  .logo-frame .c-br { bottom: -1px; right: -1px; border-width: 0 1px 1px 0; }
+
+  #logo-display {
+    font-size: clamp(3px, 0.75vw, 9px);
+    line-height: 1.2;
+    color: var(--accent);
+    white-space: pre;
+    text-align: left;
+    filter: drop-shadow(0 0 6px var(--accent));
+    transition: opacity 0.15s linear;
+  }
+
+  .logo-tag {
+    position: absolute;
+    bottom: 8px;
+    right: 14px;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--text2);
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  /* ── controls ── */
+  .controls {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .btn-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+  }
+
+  .btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text2);
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 7px 14px;
+    cursor: crosshair;
+    transition: border-color 0.12s linear, color 0.12s linear, background 0.12s linear;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  }
+  .btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .btn.active {
+    background: var(--accent);
+    color: #000;
+    border-color: var(--accent);
+    font-weight: 700;
+  }
+
+  .btn-random {
+    border-color: rgba(192,252,4,0.3);
+    color: var(--accent);
+    opacity: 0.8;
+  }
+  .btn-random:hover { opacity: 1; }
+
+  /* color row */
+  .color-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .color-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: var(--text2);
+    opacity: 0.5;
+    text-transform: uppercase;
+    margin-right: 4px;
+  }
+  .color-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    cursor: crosshair;
+    border: 1px solid transparent;
+    transition: transform 0.1s, border-color 0.1s;
+  }
+  .color-dot:hover { transform: scale(1.2); }
+  .color-dot.active { border-color: #fff; transform: scale(1.15); }
+
+  /* ── footer ── */
+  .foot {
+    position: relative;
+    z-index: 1;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--text2);
+    opacity: 0.35;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="sys-label">BGDLib // Logo Showcase v1.0</div>
+    <div class="title">[ ASCII LOGO VARIANTS — SELECT OR RANDOMIZE ]</div>
+  </div>
+
+  <div class="logo-frame" id="logoFrame">
+    <span class="c-tl"></span>
+    <span class="c-tr"></span>
+    <span class="c-bl"></span>
+    <span class="c-br"></span>
+    <pre id="logo-display"></pre>
+    <div class="logo-tag" id="logo-tag">TYPE 01</div>
+  </div>
+
+  <div class="controls">
+
+    <div class="btn-row" id="logoButtons">
+      <!-- populated by JS -->
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-random" onclick="randomLogo()">[ ⟳ RANDOM ]</button>
+    </div>
+
+    <div class="color-row">
+      <span class="color-label">Color //</span>
+      <!-- color dots populated by JS -->
+    </div>
+
+  </div>
+
+  <div class="foot">Babylonian GameDev Library · Crazy Animals Studio · 2026</div>
+
+<script>
+/* ── LOGOS ── */
+const LOGOS = [
+  {
+    name: 'TYPE 01 // ░▒▓ GRADIENT',
+    text: `░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓███████▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓███████▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓███████▓▒░░▒▓█▓▒▒▓███▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░▒▓███████▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░
+░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓███████▓▒░░▒▓████████▓▒░▒▓█▓▒░▒▓███████▓▒░  `
+  },
+  {
+    name: 'TYPE 02 // /==/ ANGULAR HUD',
+    text: `
+                  _,---.                         .=-.-.
+    _..---.   _.='.'-,  \\  _,..---._    _.-.    /==/_ /  _..---.
+  .' .'.-. \\ /==.'-     //==/,   -  \\ .-,.'|   |==|, | .' .'.-. \\
+ /==/- '=' //==/ -   .-' |==|   _   _\\==|, |   |==|  |/==/- '=' /
+ |==|-,   ' |==|_   /_,-.|==|  .=.   |==|- |   |==|- ||==|-,   '
+ |==|  .=. \\|==|  , \\_.' )==|,|   | -|==|, |   |==| ,||==|  .=. \\
+ /==/- '=' ,\\==\\-  ,    (|==|  '='   /==|- \`-._|==|- |/==/- '=' ,|
+|==|   -   / /==/ _  ,  /|==|-,   _\`//==/ - , ,/==/. /==|   -   /
+\`-._\`.___,'  \`--\`------' \`-.\`.____.' \`--\`-----'\`--\`-\`\`-._\`.___,'   `
+  },
+  {
+    name: 'TYPE 03 // U OSCILLOSCOPE',
+    text: `   ____     ____   ____     _                   ____
+U | __")uU /"___|u|  _"\\   |"|        ___    U | __")u
+ \\|  _ \\/\\| |  _ /| | | |U | | u     |_"_|    \\|  _ \\/
+  | |_) | | |_| |U| |_| |\\\\| |/__     | |      | |_) |
+  |____/   \\____| |____/ u |_____|  U/| |\\u    |____/
+ _|| \\\\_   _)(|_   |||_    //  \\\\.-,_|___|_,-._|| \\\\_
+(__) (__) (__)__) (__)_)  (_")("_)\\_)-' '-(_/(__) (__) `
+  },
+  {
+    name: 'TYPE 04 // CALLIGRAPHIC',
+    text: `      ..                   ..             ..    .          ..
+. uW8"                   dF         x .d88"    @88>  . uW8"
+\`t888                   '88bu.       5888R     %8P   \`t888
+ 8888   .        uL     '*88888bu    '888R      .     8888   .
+ 9888.z88N   .ue888Nc..   ^"*8888N    888R    .@88u   9888.z88N
+ 9888  888E d88E\`"888E\`  beWE "888L   888R   ''888E\`  9888  888E
+ 9888  888E 888E  888E   888E  888E   888R     888E   9888  888E
+ 9888  888E 888E  888E   888E  888E   888R     888E   9888  888E
+ 9888  888E 888E  888E   888E  888F   888R     888E   9888  888E
+.8888  888" 888& .888E  .888N..888   .888B .   888&  .8888  888"
+ \`%888*%"   *888" 888&   \`"888*""    ^*888%    R888"  \`%888*%"
+    "\`       \`"   "888E     ""         "%       ""       "\`
+            .dWi   \`88E
+            4888~  J8%
+             ^"===*"\`                                            `
+  },
+  {
+    name: 'TYPE 05 // CALLIGRAPHIC WIDE',
+    text: `     ...     ..            ....        .          ....                ..    .          ..
+  .=*8888x <"?88h.      .x88" \`^x~  xH(\`      .xH888888Hx.      x .d88"    @88>  . uW8"
+ X>  '8888H> '8888     X888   x8 \` 8888h    .H8888888888888:     5888R     %8P   \`t888
+'88h. \`8888   8888    88888  888.  %8888    888*"""?""*88888X    '888R      .     8888   .
+'8888 '8888    "88>  <8888X X8888   X8?    'f     d8x.   ^%88k    888R    .@88u   9888.z88N
+ \`888 '8888.xH888x.  X8888> 488888>"8888x  '>    <88888X   '?8    888R   ''888E\`  9888  888E
+   X" :88*~  \`*8888> X8888>  888888 '8888L  \`:..:\`888888>    8>   888R     888E   9888  888E
+ ~"   !"\`      "888> ?8888X   ?8888>'8888X         \`"*88     X    888R     888E   9888  888E
+  .H8888h.      ?88   8888X h  8888 '8888~    .xHHhx.."      !    888R     888E   9888  888E
+ :"^"88888h.    '!     ?888  -:8*"  <888"    X88888888hx. ..!    .888B .   888&  .8888  888"
+ ^    "88888hx.+"       \`*88.      :88%     !   "*888888888"     ^*888%    R888"  \`%888*%"
+        ^"**""             ^"~====""\`              ^"***"\`         "%       ""       "\`      `
+  },
+  {
+    name: 'TYPE 06 // HEAVY SLASHES',
+    text: `__/\\\\\\\\\\\\\\\\\\\\\\\\\\_______/\\\\\\\\\\\\\\\\\\\\\\\\__/\\\\\\\\\\\\\\\\\\\\\\\\_____/\\\\\\\\\\\\___________/\\\\\\________
+ _\\/\\\\\\/////////\\\\\\___/\\\\\\//////////__\\/\\\\\\////////\\\\\\__\\////\\\\\\__________\\/\\\\\\________
+  _\\/\\\\\\_______\\/\\\\\\__/\\\\\\_____________\\/\\\\\\______\\//\\\\\\____\\/\\\\\\_____/\\\\\\_\\/\\\\\\________
+   _\\/\\\\\\\\\\\\\\\\\\\\\\\\\\\\__\\/\\\\\\____/\\\\\\\\\\\\\\_\\/\\\\\\_______\\/\\\\\\____\\/\\\\\\____\\///__\\/\\\\\\________
+    _\\/\\\\\\/////////\\\\\\_\\/\\\\\\___\\/////\\\\\\_\\/\\\\\\_______\\/\\\\\\____\\/\\\\\\_____/\\\\\\_\\/\\\\\\\\\\\\\\\\\\__
+     _\\/\\\\\\_______\\/\\\\\\_\\/\\\\\\_______\\/\\\\\\_\\/\\\\\\_______\\/\\\\\\____\\/\\\\\\____\\/\\\\\\_\\/\\\\\\////\\\\\\_
+      _\\/\\\\\\_______\\/\\\\\\_\\/\\\\\\_______\\/\\\\\\_\\/\\\\\\_______/\\\\\\_____\\/\\\\\\____\\/\\\\\\_\\/\\\\\\__\\/\\\\\\_
+       _\\/\\\\\\\\\\\\\\\\\\\\\\\\\\/__\\//\\\\\\\\\\\\\\\\\\\\\\\\/__\\/\\\\\\\\\\\\\\\\\\\\\\\\/____/\\\\\\\\\\\\\\\\\\_\\/\\\\\\_\\/\\\\\\\\\\\\\\\\\\__
+        _\\/////////////_____\\////////////____\\////////////_____\\/////////__\\///__\\/////////___`
+  },
+  {
+    name: 'TYPE 07 // MIXED COLON',
+    text: `:::::::.    .,-:::::/ :::::::-.   :::     ::::::::::.
+ ;;;'';;' ,;;-'\`\`\`\`'   ;;,   \`';, ;;;     ;;; ;;;'';;'
+ [[[__[[\\.[[[   [[[[[[/\`[[     [[ [[[     [[[ [[[__[[\\.
+ $$""""Y$$"$$c.    "$$  $$,    $$ $$'     $$$ $$""""Y$$
+_88o,,od8P \`Y8bo,,,o88o 888_,o8P'o88oo,.__888_88o,,od8P
+""YUMMMP"    \`'YMUP"YMM MMMMP"\`  """"YUMMMMMM""YUMMMP" `
+  },
+];
+
+/* ── COLORS ── */
+const COLORS = [
+  { name: 'lime',    accent: '#c0fc04' },
+  { name: 'magenta', accent: '#ea027e' },
+  { name: 'cyan',    accent: '#00c8ff' },
+  { name: 'amber',   accent: '#ff8800' },
+  { name: 'purple',  accent: '#bb44ff' },
+  { name: 'green',   accent: '#39ff14' },
+  { name: 'yellow',  accent: '#ffe600' },
+  { name: 'red',     accent: '#ff0033' },
+];
+
+let current = 0;
+let currentColor = 0;
+
+const display  = document.getElementById('logo-display');
+const tagEl    = document.getElementById('logo-tag');
+const btnRow   = document.getElementById('logoButtons');
+const colorRow = document.querySelector('.color-row');
+
+/* build logo buttons */
+LOGOS.forEach((l, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'btn' + (i === 0 ? ' active' : '');
+  btn.textContent = `[ ${String(i+1).padStart(2,'0')} ]`;
+  btn.title = l.name;
+  btn.onclick = () => setLogo(i);
+  btnRow.appendChild(btn);
+});
+
+/* build color dots */
+COLORS.forEach((c, i) => {
+  const dot = document.createElement('div');
+  dot.className = 'color-dot' + (i === 0 ? ' active' : '');
+  dot.style.background = c.accent;
+  dot.title = c.name;
+  dot.onclick = () => setColor(i);
+  colorRow.appendChild(dot);
+});
+
+function setLogo(i, animate = true) {
+  current = i;
+  if (animate) {
+    display.style.opacity = '0';
+    setTimeout(() => {
+      display.textContent = LOGOS[i].text;
+      tagEl.textContent = LOGOS[i].name;
+      display.style.opacity = '1';
+    }, 120);
+  } else {
+    display.textContent = LOGOS[i].text;
+    tagEl.textContent = LOGOS[i].name;
+  }
+  document.querySelectorAll('#logoButtons .btn').forEach((b, j) => {
+    b.classList.toggle('active', j === i);
+  });
+}
+
+function setColor(i) {
+  currentColor = i;
+  document.documentElement.style.setProperty('--accent', COLORS[i].accent);
+  document.querySelectorAll('.color-dot').forEach((d, j) => {
+    d.classList.toggle('active', j === i);
+  });
+}
+
+function randomLogo() {
+  const i = Math.floor(Math.random() * LOGOS.length);
+  const c = Math.floor(Math.random() * COLORS.length);
+  setColor(c);
+  setLogo(i);
+}
+
+/* init */
+setLogo(0, false);
+</script>
+</body>
+</html>
