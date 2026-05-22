@@ -4,6 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BGDLib — Babylonian GameDev Library</title>
+  <meta name="description" content="BGDLib is a mobile RSS aggregator for game developers — 30+ sources, one adaptive feed filtered by role, engine, and expertise level. Android &amp; iOS.">
+  <meta property="og:title" content="BGDLib — Babylonian GameDev Library">
+  <meta property="og:description" content="30+ sources. One adaptive feed. Filtered by role, engine and expertise level. Signal, not noise.">
+  <meta property="og:url" content="https://crazyanimalsstudio.space/bgd">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BGDLib — Babylonian GameDev Library">
+  <meta name="twitter:description" content="30+ sources. One adaptive feed. Filtered by role, engine and expertise level. Signal, not noise.">
+  <link rel="canonical" href="https://crazyanimalsstudio.space/bgd">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -30,7 +40,10 @@
 
   <!-- NAV -->
   <nav>
-    <a class="nav-logo" href="#" aria-label="BGDLib — Babylonian GameDev Library"><span class="acc">BGD</span>Lib</a>
+    <div class="nav-brand">
+      <a class="nav-cas" href="https://crazyanimalsstudio.space" aria-label="CAS — Crazy Animals Studio">← CAS</a>
+      <a class="nav-logo" href="#" aria-label="BGDLib — Babylonian GameDev Library"><span class="acc">BGD</span>Lib</a>
+    </div>
     <div class="nav-status" aria-hidden="true">IN DEV</div>
     <div class="lang-toggle" role="group" aria-label="Language / Язык">
       <button class="lang-btn active" data-lang="en" aria-pressed="true">EN</button>
@@ -103,6 +116,20 @@
 
   <div class="div-accent"></div>
 
+  <!-- ABOUT -->
+  <section class="section reveal" id="about">
+    <span class="c-tl" aria-hidden="true"></span>
+    <span class="c-tr" aria-hidden="true"></span>
+    <span class="c-bl" aria-hidden="true"></span>
+    <span class="c-br" aria-hidden="true"></span>
+    <span class="ghost-label" aria-hidden="true">ABOUT</span>
+    <span class="s-label" data-t="about.label">[ 002 ] // OVERVIEW</span>
+    <h2 class="s-title" data-t="about.title">One app.<br>All gamedev.</h2>
+    <p class="s-body" data-t="about.body">BGDLib is a mobile RSS aggregator for game developers. Available on Android &amp; iOS, built with .NET MAUI. Aggregates 30+ sources — blogs, forums, YouTube channels, job boards — into one personalized feed filtered by your role, engine, and skill level.</p>
+  </section>
+
+  <div class="div-faint"></div>
+
   <!-- PROBLEM -->
   <section class="section reveal" id="problem">
     <span class="c-tl" aria-hidden="true"></span>
@@ -110,7 +137,7 @@
     <span class="c-bl" aria-hidden="true"></span>
     <span class="c-br" aria-hidden="true"></span>
     <span class="ghost-label" aria-hidden="true">PROBLEM</span>
-    <span class="s-label" data-t="problem.label">[ 002 ] // DIAGNOSTIC</span>
+    <span class="s-label" data-t="problem.label">[ 003 ] // DIAGNOSTIC</span>
     <h2 class="s-title" data-t="problem.title">Data overflow.<br>Zero filtering.</h2>
     <p class="s-body" data-t="problem.body">Developers lose 3h/day scanning 30+ tabs manually — Unity Blog, GDC Vault, Reddit, YouTube, Telegram, job boards. No tool aggregates and filters all of it at once.</p>
     <div class="problem-grid">
@@ -135,6 +162,69 @@
 
   <div class="div-faint"></div>
 
+  <!-- SOLUTION -->
+  <section class="section reveal" id="solution">
+    <span class="c-tl" aria-hidden="true"></span>
+    <span class="c-tr" aria-hidden="true"></span>
+    <span class="c-bl" aria-hidden="true"></span>
+    <span class="c-br" aria-hidden="true"></span>
+    <span class="ghost-label" aria-hidden="true">SOLUTION</span>
+    <span class="s-label" data-t="solution.label">[ 004 ] // RESPONSE</span>
+    <h2 class="s-title" data-t="solution.title">Engineered<br>to cut noise.</h2>
+    <div class="sol-grid">
+      <div class="sol-cell reveal">
+        <svg class="sol-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h10"/></svg>
+        <div class="sol-name" data-t="sol1.name">UNIFIED FEED</div>
+        <p class="sol-text" data-t="sol1.text">All sources in one place. No tab switching, no manual RSS readers.</p>
+      </div>
+      <div class="sol-cell reveal">
+        <svg class="sol-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+        <div class="sol-name" data-t="sol2.name">SMART FILTER</div>
+        <p class="sol-text" data-t="sol2.text">Filter by role, engine, and expertise level. Only relevant content reaches you.</p>
+      </div>
+      <div class="sol-cell reveal">
+        <svg class="sol-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="3"/><line x1="9" y1="7" x2="15" y2="7"/><circle cx="12" cy="17" r="1" fill="currentColor" stroke="none"/></svg>
+        <div class="sol-name" data-t="sol3.name">MOBILE FIRST</div>
+        <p class="sol-text" data-t="sol3.text">Read on transit, offline mode, push notifications for critical updates.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-faint"></div>
+
+  <!-- AUDIENCE -->
+  <section class="section reveal" id="audience">
+    <span class="c-tl" aria-hidden="true"></span>
+    <span class="c-tr" aria-hidden="true"></span>
+    <span class="c-bl" aria-hidden="true"></span>
+    <span class="c-br" aria-hidden="true"></span>
+    <span class="ghost-label" aria-hidden="true">AUDIENCE</span>
+    <span class="s-label" data-t="audience.label">[ 005 ] // TARGET OPERATORS</span>
+    <h2 class="s-title" data-t="audience.title">Who reads.</h2>
+    <div class="aud-grid">
+      <div class="aud-card reveal">
+        <div class="aud-name" data-t="aud1.name">ALEXEY</div>
+        <div class="aud-meta" data-t="aud1.meta">19 // IT STUDENT</div>
+        <p class="aud-item" data-t="aud1.pain"><strong>Pain:</strong> Wastes an hour browsing sites daily.</p>
+        <p class="aud-item" data-t="aud1.goal"><strong>Goal:</strong> One source for everything.</p>
+      </div>
+      <div class="aud-card reveal">
+        <div class="aud-name" data-t="aud2.name">DMITRY</div>
+        <div class="aud-meta" data-t="aud2.meta">24 // INDIE SOLO DEV</div>
+        <p class="aud-item" data-t="aud2.pain"><strong>Pain:</strong> Finds out about news too late.</p>
+        <p class="aud-item" data-t="aud2.goal"><strong>Goal:</strong> Never miss what matters.</p>
+      </div>
+      <div class="aud-card reveal">
+        <div class="aud-name" data-t="aud3.name">MARIA</div>
+        <div class="aud-meta" data-t="aud3.meta">22 // SELF-TAUGHT</div>
+        <p class="aud-item" data-t="aud3.pain"><strong>Pain:</strong> Doesn't know what to read.</p>
+        <p class="aud-item" data-t="aud3.goal"><strong>Goal:</strong> Enter the professional stream.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-faint"></div>
+
   <!-- FEATURES -->
   <section class="section reveal" id="features">
     <span class="c-tl" aria-hidden="true"></span>
@@ -142,7 +232,7 @@
     <span class="c-bl" aria-hidden="true"></span>
     <span class="c-br" aria-hidden="true"></span>
     <span class="ghost-label" aria-hidden="true">FEATURES</span>
-    <span class="s-label" data-t="features.label">[ 003 ] // MODULES</span>
+    <span class="s-label" data-t="features.label">[ 006 ] // MODULES</span>
     <h2 class="s-title" data-t="features.title">Configured<br>for your stack.</h2>
     <p class="s-body" data-t="features.body">Six modules. Zero bloat. Precision output filtered to your workflow.</p>
     <div class="feat-grid">
@@ -199,7 +289,7 @@
     <span class="c-bl" aria-hidden="true"></span>
     <span class="c-br" aria-hidden="true"></span>
     <span class="ghost-label" aria-hidden="true">SOURCES</span>
-    <span class="s-label" data-t="sources.label">[ 004 ] // DATA NODES</span>
+    <span class="s-label" data-t="sources.label">[ 007 ] // DATA NODES</span>
     <h2 class="s-title" data-t="sources.title">All nodes.<br>One endpoint.</h2>
     <p class="s-body" data-t="sources.body">BGDLib aggregates 30+ active data nodes — every major channel where gamedev knowledge is published.</p>
     <div class="src-cloud" id="srcCloud" role="list">
@@ -228,7 +318,7 @@
     <span class="ghost-label" aria-hidden="true">LAUNCH</span>
     <div class="cta-ghost" aria-hidden="true">2026</div>
     <div class="cta-inner">
-      <span class="s-label" data-t="cta.label">[ 005 ] // STATUS: PENDING</span>
+      <span class="s-label" data-t="cta.label">[ 008 ] // STATUS: PENDING</span>
       <h2 class="cta-title" data-t="cta.title">Zero noise.<br><em>Full signal.</em></h2>
       <p class="cta-sub" data-t="cta.sub">BGDLib is in active development. Target deployment: Android + iOS. ETA 2026.</p>
       <div class="platforms">
@@ -241,6 +331,76 @@
           <span data-t="cta.ios">iOS</span>
         </div>
       </div>
+
+      <!-- SURVEY FORM -->
+      <form id="survey-form" class="survey-form" novalidate>
+        <fieldset class="survey-fieldset">
+          <legend class="survey-legend" data-t="survey.q1">Are you a game developer?</legend>
+          <div class="survey-options">
+            <label class="survey-option"><input type="radio" name="q1" value="yes"><span class="survey-check"></span><span data-t="survey.q1.yes">Yes</span></label>
+            <label class="survey-option"><input type="radio" name="q1" value="no"><span class="survey-check"></span><span data-t="survey.q1.no">No</span></label>
+            <label class="survey-option"><input type="radio" name="q1" value="learning"><span class="survey-check"></span><span data-t="survey.q1.learning">Still learning</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="survey-fieldset">
+          <legend class="survey-legend" data-t="survey.q2">Which engine do you use?</legend>
+          <div class="survey-options">
+            <label class="survey-option"><input type="checkbox" name="q2" value="unity"><span class="survey-check"></span><span>Unity</span></label>
+            <label class="survey-option"><input type="checkbox" name="q2" value="unreal"><span class="survey-check"></span><span>Unreal</span></label>
+            <label class="survey-option"><input type="checkbox" name="q2" value="godot"><span class="survey-check"></span><span>Godot</span></label>
+            <label class="survey-option"><input type="checkbox" name="q2" value="other"><span class="survey-check"></span><span data-t="survey.other">Other</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="survey-fieldset">
+          <legend class="survey-legend" data-t="survey.q3">Time spent searching for materials daily?</legend>
+          <div class="survey-options">
+            <label class="survey-option"><input type="radio" name="q3" value="lt30"><span class="survey-check"></span><span data-t="survey.q3.lt30">&lt; 30 min</span></label>
+            <label class="survey-option"><input type="radio" name="q3" value="30to60"><span class="survey-check"></span><span data-t="survey.q3.30to60">30–60 min</span></label>
+            <label class="survey-option"><input type="radio" name="q3" value="gt60"><span class="survey-check"></span><span data-t="survey.q3.gt60">&gt; 1 hour</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="survey-fieldset">
+          <legend class="survey-legend" data-t="survey.q4">Which sources do you follow?</legend>
+          <div class="survey-options">
+            <label class="survey-option"><input type="checkbox" name="q4" value="unity-blog"><span class="survey-check"></span><span>Unity Blog</span></label>
+            <label class="survey-option"><input type="checkbox" name="q4" value="gdc"><span class="survey-check"></span><span>GDC</span></label>
+            <label class="survey-option"><input type="checkbox" name="q4" value="reddit"><span class="survey-check"></span><span>Reddit</span></label>
+            <label class="survey-option"><input type="checkbox" name="q4" value="youtube"><span class="survey-check"></span><span>YouTube</span></label>
+            <label class="survey-option"><input type="checkbox" name="q4" value="habr"><span class="survey-check"></span><span>Habr</span></label>
+            <label class="survey-option"><input type="checkbox" name="q4" value="other"><span class="survey-check"></span><span data-t="survey.other">Other</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="survey-fieldset">
+          <legend class="survey-legend" data-t="survey.q5">Would a unified feed be useful?</legend>
+          <div class="survey-options">
+            <label class="survey-option"><input type="radio" name="q5" value="yes"><span class="survey-check"></span><span data-t="survey.q5.yes">Yes</span></label>
+            <label class="survey-option"><input type="radio" name="q5" value="no"><span class="survey-check"></span><span data-t="survey.q5.no">No</span></label>
+            <label class="survey-option"><input type="radio" name="q5" value="maybe"><span class="survey-check"></span><span data-t="survey.q5.maybe">Maybe</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="survey-fieldset">
+          <legend class="survey-legend" data-t="survey.q6">Preferred content format?</legend>
+          <div class="survey-options">
+            <label class="survey-option"><input type="radio" name="q6" value="articles"><span class="survey-check"></span><span data-t="survey.q6.articles">Articles</span></label>
+            <label class="survey-option"><input type="radio" name="q6" value="video"><span class="survey-check"></span><span data-t="survey.q6.video">Video</span></label>
+            <label class="survey-option"><input type="radio" name="q6" value="both"><span class="survey-check"></span><span data-t="survey.q6.both">Both</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="survey-fieldset">
+          <legend class="survey-legend" data-t="survey.q7">Do you need offline mode?</legend>
+          <div class="survey-options">
+            <label class="survey-option"><input type="radio" name="q7" value="yes"><span class="survey-check"></span><span data-t="survey.q7.yes">Yes</span></label>
+            <label class="survey-option"><input type="radio" name="q7" value="no"><span class="survey-check"></span><span data-t="survey.q7.no">No</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="survey-fieldset">
+          <legend class="survey-legend" data-t="survey.q8">Email for launch notification</legend>
+          <input type="email" name="email" class="survey-email" placeholder="your@email.com" autocomplete="email">
+        </fieldset>
+        <button type="submit" class="btn-primary survey-submit" data-t="survey.submit">Submit →</button>
+      </form>
+      <div id="survey-success" class="survey-msg survey-success" hidden data-t="survey.success">Signal received. ✓</div>
+      <div id="survey-error" class="survey-msg survey-error" hidden data-t="survey.error">Transmission failed. Try again.</div>
     </div>
   </div>
 
@@ -248,6 +408,10 @@
   <footer>
     <div class="foot-logo"><span class="acc">BGD</span>Lib</div>
     <div class="foot-copy" data-t="footer.copy">© 2026 Babylonian GameDev Library</div>
+    <div class="foot-links">
+      <a class="foot-link" href="https://github.com/ik4rcat" target="_blank" rel="noopener">GitHub</a>
+      <a class="foot-link" href="mailto:cat.ikar294@gmail.com">cat.ikar294@gmail.com</a>
+    </div>
   </footer>
 
   <script src="script.js"></script>

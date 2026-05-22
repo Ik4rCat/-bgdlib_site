@@ -339,6 +339,9 @@ const palettes = [
   bootTimeouts.push(t0);
 })();
 
+/* ── APPS SCRIPT ENDPOINT ── */
+const APPS_SCRIPT_URL = '';
+
 /* ── I18N ── */
 const i18n = {
   en: {
@@ -347,14 +350,36 @@ const i18n = {
     'hero.sub':       '30+ sources. One adaptive feed. Filtered by role, engine and expertise level. Signal, not noise.',
     'hero.cta':       'Notify on launch →',
     'hero.scroll':    'Scroll',
-    'problem.label':  '[ 002 ] // DIAGNOSTIC',
+    'about.label':    '[ 002 ] // OVERVIEW',
+    'about.title':    'One app.<br>All gamedev.',
+    'about.body':     'BGDLib is a mobile RSS aggregator for game developers. Available on Android &amp; iOS, built with .NET MAUI. Aggregates 30+ sources — blogs, forums, YouTube channels, job boards — into one personalized feed filtered by your role, engine, and skill level.',
+    'problem.label':  '[ 003 ] // DIAGNOSTIC',
     'problem.title':  'Data overflow.<br>Zero filtering.',
     'problem.body':   'Developers lose 3h/day scanning 30+ tabs manually — Unity Blog, GDC Vault, Reddit, YouTube, Telegram, job boards. No tool aggregates and filters all of it at once.',
     'problem.stat1':  '<strong>Data nodes to monitor daily</strong> — Unity, Godot, GDC Vault, Gamasutra, r/gamedev, job boards, Telegram.',
     'problem.stat2':  '<strong>Hours of resource lost per day</strong> to manual scanning. Reallocate to shipping.',
     'problem.stat3':  '<strong>NULL: tools that filter</strong> by role, engine, and expertise level simultaneously.',
     'problem.stat4':  '<strong>Signal/noise ratio: critical.</strong> A Unity engineer receives Houdini tutorials. System has no operator context.',
-    'features.label': '[ 003 ] // MODULES',
+    'solution.label': '[ 004 ] // RESPONSE',
+    'solution.title': 'Engineered<br>to cut noise.',
+    'sol1.name': 'UNIFIED FEED',
+    'sol1.text': 'All sources in one place. No tab switching, no manual RSS readers.',
+    'sol2.name': 'SMART FILTER',
+    'sol2.text': 'Filter by role, engine, and expertise level. Only relevant content reaches you.',
+    'sol3.name': 'MOBILE FIRST',
+    'sol3.text': 'Read on transit, offline mode, push notifications for critical updates.',
+    'audience.label': '[ 005 ] // TARGET OPERATORS',
+    'audience.title': 'Who reads.',
+    'aud1.name': 'ALEXEY',   'aud1.meta': '19 // IT STUDENT',
+    'aud1.pain': '<strong>Pain:</strong> Wastes an hour browsing sites daily.',
+    'aud1.goal': '<strong>Goal:</strong> One source for everything.',
+    'aud2.name': 'DMITRY',   'aud2.meta': '24 // INDIE SOLO DEV',
+    'aud2.pain': '<strong>Pain:</strong> Finds out about news too late.',
+    'aud2.goal': '<strong>Goal:</strong> Never miss what matters.',
+    'aud3.name': 'MARIA',    'aud3.meta': '22 // SELF-TAUGHT',
+    'aud3.pain': '<strong>Pain:</strong> Doesn\'t know what to read.',
+    'aud3.goal': '<strong>Goal:</strong> Enter the professional stream.',
+    'features.label': '[ 006 ] // MODULES',
     'features.title': 'Configured<br>for your stack.',
     'features.body':  'Six modules. Zero bloat. Precision output filtered to your workflow.',
     'feat1.title': 'FEED.CORE',       'feat1.badge': '// PRIMARY',
@@ -369,14 +394,31 @@ const i18n = {
     'feat5.desc': 'Notifications fire only on matching subscription events. No noise. Selective delivery, not broadcast.',
     'feat6.title': 'OPERATOR CONFIG',
     'feat6.desc': 'Set role, engine, skill tier. Feed recalibrates. Config persists across sessions.',
-    'sources.label':  '[ 004 ] // DATA NODES',
+    'sources.label':  '[ 007 ] // DATA NODES',
     'sources.title':  'All nodes.<br>One endpoint.',
     'sources.body':   'BGDLib aggregates 30+ active data nodes — every major channel where gamedev knowledge is published.',
     'sources.more':   '+ nodes pending',
-    'cta.label':      '[ 005 ] // STATUS: PENDING',
+    'cta.label':      '[ 008 ] // STATUS: PENDING',
     'cta.title':      'Zero noise.<br><em>Full signal.</em>',
     'cta.sub':        'BGDLib is in active development. Target deployment: Android + iOS. ETA 2026.',
     'cta.android': 'Android', 'cta.ios': 'iOS',
+    'survey.q1': 'Are you a game developer?',
+    'survey.q1.yes': 'Yes', 'survey.q1.no': 'No', 'survey.q1.learning': 'Still learning',
+    'survey.q2': 'Which engine do you use?',
+    'survey.q3': 'Time spent searching for materials daily?',
+    'survey.q3.lt30': '< 30 min', 'survey.q3.30to60': '30–60 min', 'survey.q3.gt60': '> 1 hour',
+    'survey.q4': 'Which sources do you follow?',
+    'survey.q5': 'Would a unified feed be useful?',
+    'survey.q5.yes': 'Yes', 'survey.q5.no': 'No', 'survey.q5.maybe': 'Maybe',
+    'survey.q6': 'Preferred content format?',
+    'survey.q6.articles': 'Articles', 'survey.q6.video': 'Video', 'survey.q6.both': 'Both',
+    'survey.q7': 'Do you need offline mode?',
+    'survey.q7.yes': 'Yes', 'survey.q7.no': 'No',
+    'survey.q8': 'Email for launch notification',
+    'survey.other': 'Other',
+    'survey.submit': 'Submit →',
+    'survey.success': 'Signal received. ✓',
+    'survey.error': 'Transmission failed. Try again.',
     'footer.copy': '© 2026 BGDLib — Babylonian GameDev Library',
   },
   ru: {
@@ -385,14 +427,36 @@ const i18n = {
     'hero.sub':       '30+ источников. Один адаптивный фид. Фильтрация по роли, движку и уровню. Сигнал без шума.',
     'hero.cta':       'Уведомить о запуске →',
     'hero.scroll':    'Вниз',
-    'problem.label':  '[ 002 ] // ДИАГНОСТИКА',
+    'about.label':    '[ 002 ] // ОБЗОР',
+    'about.title':    'Одно приложение.<br>Весь геймдев.',
+    'about.body':     'BGDLib — мобильный RSS-агрегатор для разработчиков игр. Android и iOS, стек .NET MAUI. 30+ источников — блоги, форумы, YouTube-каналы, вакансии — в одной персонализированной ленте с фильтрацией по роли, движку и уровню.',
+    'problem.label':  '[ 003 ] // ДИАГНОСТИКА',
     'problem.title':  'Переполнение данных.<br>Фильтров нет.',
     'problem.body':   'Разработчики теряют 3ч/день на ручной скан 30+ вкладок — Unity Blog, GDC Vault, Reddit, YouTube, Telegram, вакансии. Ни один инструмент не агрегирует и не фильтрует всё сразу.',
     'problem.stat1':  '<strong>Узлов данных для ежедневного мониторинга</strong> — Unity, Godot, GDC Vault, Gamasutra, r/gamedev, вакансии, Telegram.',
     'problem.stat2':  '<strong>Часов ресурса теряется ежедневно</strong> на ручной скан. Перераспредели на разработку.',
     'problem.stat3':  '<strong>NULL: инструментов</strong>, фильтрующих по роли, движку и уровню одновременно.',
     'problem.stat4':  '<strong>Соотношение сигнал/шум: критическое.</strong> Unity-разработчик получает туториалы по Houdini. Система не имеет контекста оператора.',
-    'features.label': '[ 003 ] // МОДУЛИ',
+    'solution.label': '[ 004 ] // РЕШЕНИЕ',
+    'solution.title': 'Разработан<br>для фильтрации.',
+    'sol1.name': 'ЕДИНАЯ ЛЕНТА',
+    'sol1.text': 'Все источники в одном месте. Никаких вкладок, никаких ручных RSS-ридеров.',
+    'sol2.name': 'УМНЫЙ ФИЛЬТР',
+    'sol2.text': 'Фильтрация по роли, движку и уровню. До тебя доходит только релевантный контент.',
+    'sol3.name': 'МОБИЛЬНЫЙ',
+    'sol3.text': 'Читай в транспорте, офлайн-режим, пуш-уведомления о важных обновлениях.',
+    'audience.label': '[ 005 ] // ЦЕЛЕВАЯ АУДИТОРИЯ',
+    'audience.title': 'Кто читает.',
+    'aud1.name': 'АЛЕКСЕЙ',  'aud1.meta': '19 // СТУДЕНТ IT',
+    'aud1.pain': '<strong>Боль:</strong> тратит час на обход сайтов ежедневно.',
+    'aud1.goal': '<strong>Цель:</strong> один источник для всего.',
+    'aud2.name': 'ДМИТРИЙ',  'aud2.meta': '24 // INDIE СОЛО',
+    'aud2.pain': '<strong>Боль:</strong> узнаёт новости с опозданием.',
+    'aud2.goal': '<strong>Цель:</strong> не пропускать важное.',
+    'aud3.name': 'МАРИЯ',    'aud3.meta': '22 // САМОУЧКА',
+    'aud3.pain': '<strong>Боль:</strong> не знает, что читать.',
+    'aud3.goal': '<strong>Цель:</strong> попасть в профессиональный поток.',
+    'features.label': '[ 006 ] // МОДУЛИ',
     'features.title': 'Настроен<br>под твой стек.',
     'features.body':  'Шесть модулей. Ноль лишнего. Точечный вывод под твой рабочий процесс.',
     'feat1.title': 'FEED.CORE', 'feat1.badge': '// ЯДРО',
@@ -407,36 +471,80 @@ const i18n = {
     'feat5.desc': 'Уведомления срабатывают только при совпадении с подпиской. Без шума. Адресная доставка, не широковещание.',
     'feat6.title': 'ПРОФИЛЬ ОПЕРАТОРА',
     'feat6.desc': 'Задай роль, движок, уровень. Фид перекалибруется. Конфигурация сохраняется между сессиями.',
-    'sources.label':  '[ 004 ] // УЗЛЫ ДАННЫХ',
+    'sources.label':  '[ 007 ] // УЗЛЫ ДАННЫХ',
     'sources.title':  'Все узлы.<br>Один эндпоинт.',
     'sources.body':   'BGDLib агрегирует 30+ активных узлов данных — все ключевые каналы публикации геймдев-знаний.',
     'sources.more':   '+ узлы добавляются',
-    'cta.label':      '[ 005 ] // СТАТУС: ОЖИДАНИЕ',
+    'cta.label':      '[ 008 ] // СТАТУС: ОЖИДАНИЕ',
     'cta.title':      'Ноль шума.<br><em>Чистый сигнал.</em>',
     'cta.sub':        'BGDLib в активной разработке. Платформы: Android + iOS. Запуск: 2026.',
     'cta.android': 'Android', 'cta.ios': 'iOS',
+    'survey.q1': 'Ты разработчик игр?',
+    'survey.q1.yes': 'Да', 'survey.q1.no': 'Нет', 'survey.q1.learning': 'Только учусь',
+    'survey.q2': 'Какой движок используешь?',
+    'survey.q3': 'Сколько времени тратишь на поиск материалов в день?',
+    'survey.q3.lt30': '< 30 мин', 'survey.q3.30to60': '30–60 мин', 'survey.q3.gt60': '> 1 часа',
+    'survey.q4': 'Какие источники читаешь?',
+    'survey.q5': 'Была бы полезна единая лента?',
+    'survey.q5.yes': 'Да', 'survey.q5.no': 'Нет', 'survey.q5.maybe': 'Возможно',
+    'survey.q6': 'Какой формат предпочитаешь?',
+    'survey.q6.articles': 'Статьи', 'survey.q6.video': 'Видео', 'survey.q6.both': 'Оба',
+    'survey.q7': 'Нужен офлайн-режим?',
+    'survey.q7.yes': 'Да', 'survey.q7.no': 'Нет',
+    'survey.q8': 'Email для уведомления о запуске',
+    'survey.other': 'Другое',
+    'survey.submit': 'Отправить →',
+    'survey.success': 'Сигнал принят. ✓',
+    'survey.error': 'Сбой передачи. Попробуй снова.',
     'footer.copy': '© 2026 BGDLib — Babylonian GameDev Library',
   },
 };
 
 let currentLang = 'en';
+let langInitialized = false;
 
 function applyLang(lang) {
   currentLang = lang;
   const dict = i18n[lang];
-  document.querySelectorAll('[data-t]').forEach(el => {
-    const key = el.getAttribute('data-t');
-    if (dict[key] !== undefined) el.innerHTML = dict[key];
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const translatables = langInitialized
+    ? [...document.querySelectorAll('[data-t]')].filter(el => !el.classList.contains('lang-btn'))
+    : [];
+
+  function updateText() {
+    document.querySelectorAll('[data-t]').forEach(el => {
+      const key = el.getAttribute('data-t');
+      if (dict[key] !== undefined) el.innerHTML = dict[key];
+    });
+    const t = document.querySelector('.hero-title');
+    const c = document.querySelector('.hero-title-clone');
+    if (c && t) c.innerHTML = t.innerHTML;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const active = btn.dataset.lang === lang;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    document.documentElement.lang = lang;
+    langInitialized = true;
+  }
+
+  if (!translatables.length || reduced) {
+    updateText();
+    return;
+  }
+
+  translatables.forEach(el => {
+    el.style.transition = 'opacity 0.15s ease';
+    el.style.opacity = '0';
   });
-  const t = document.querySelector('.hero-title');
-  const c = document.querySelector('.hero-title-clone');
-  if (c && t) c.innerHTML = t.innerHTML;
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    const active = btn.dataset.lang === lang;
-    btn.classList.toggle('active', active);
-    btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-  });
-  document.documentElement.lang = lang;
+  setTimeout(() => {
+    updateText();
+    translatables.forEach(el => { el.style.opacity = '1'; });
+    setTimeout(() => translatables.forEach(el => {
+      el.style.transition = '';
+      el.style.opacity = '';
+    }), 160);
+  }, 150);
 }
 
 document.querySelectorAll('.lang-btn').forEach(btn =>
@@ -818,3 +926,56 @@ const scrambleIO = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 
 document.querySelectorAll('.s-title').forEach(el => scrambleIO.observe(el));
+
+/* ── SURVEY FORM ── */
+(function initSurvey() {
+  const form    = document.getElementById('survey-form');
+  const success = document.getElementById('survey-success');
+  const error   = document.getElementById('survey-error');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = form.querySelector('.survey-submit');
+    const origText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '...';
+    success.hidden = true;
+    error.hidden = true;
+
+    const fd = new FormData(form);
+    const data = { timestamp: new Date().toISOString() };
+    for (const [key, val] of fd.entries()) {
+      if (data[key]) {
+        data[key] = Array.isArray(data[key]) ? [...data[key], val] : [data[key], val];
+      } else {
+        data[key] = val;
+      }
+    }
+    for (const key in data) {
+      if (Array.isArray(data[key])) data[key] = data[key].join(', ');
+    }
+
+    if (!APPS_SCRIPT_URL) {
+      setTimeout(() => {
+        form.hidden = true;
+        success.hidden = false;
+      }, 600);
+      return;
+    }
+
+    try {
+      await fetch(APPS_SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify(data),
+      });
+      form.hidden = true;
+      success.hidden = false;
+    } catch {
+      btn.disabled = false;
+      btn.innerHTML = origText;
+      error.hidden = false;
+    }
+  });
+})();
