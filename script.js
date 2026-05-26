@@ -339,8 +339,13 @@ const palettes = [
   bootTimeouts.push(t0);
 })();
 
-/* ── APPS SCRIPT ENDPOINT ── */
-const APPS_SCRIPT_URL = '';
+/* ── GOOGLE APPS SCRIPT ENDPOINT ──
+   1. Открой https://script.google.com → New project
+   2. Вставь содержимое apps-script.gs из этого репо
+   3. Deploy → New deployment → Web App → Execute as: Me → Who has access: Anyone
+   4. Скопируй URL деплоя и вставь сюда
+   ──────────────────────────────────────────────────────────────── */
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwm32gyooNGbH7b10ojEeqtn9SzLpwladXQdxT32Q6WjWjdOysei6Gj3aiobysuSZoa/exec';
 
 /* ── I18N ── */
 const i18n = {
@@ -936,14 +941,15 @@ document.querySelectorAll('.s-title').forEach(el => scrambleIO.observe(el));
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn = form.querySelector('.survey-submit');
+    const btn      = form.querySelector('.survey-submit');
     const origText = btn.innerHTML;
-    btn.disabled = true;
-    btn.innerHTML = '...';
+    btn.disabled   = true;
+    btn.innerHTML  = '[ TRANSMITTING... ]';
     success.hidden = true;
-    error.hidden = true;
+    error.hidden   = true;
 
-    const fd = new FormData(form);
+    /* Собираем данные — чекбоксы объединяем через запятую */
+    const fd   = new FormData(form);
     const data = { timestamp: new Date().toISOString() };
     for (const [key, val] of fd.entries()) {
       if (data[key]) {
@@ -956,26 +962,25 @@ document.querySelectorAll('.s-title').forEach(el => scrambleIO.observe(el));
       if (Array.isArray(data[key])) data[key] = data[key].join(', ');
     }
 
+    /* Пока URL не вставлен — dev-режим, показываем success локально */
     if (!APPS_SCRIPT_URL) {
-      setTimeout(() => {
-        form.hidden = true;
-        success.hidden = false;
-      }, 600);
+      setTimeout(() => { form.hidden = true; success.hidden = false; }, 600);
       return;
     }
 
     try {
+      /* Apps Script требует text/plain из-за CORS preflight */
       await fetch(APPS_SCRIPT_URL, {
-        method: 'POST',
+        method:  'POST',
         headers: { 'Content-Type': 'text/plain' },
-        body: JSON.stringify(data),
+        body:    JSON.stringify(data),
       });
-      form.hidden = true;
+      form.hidden    = true;
       success.hidden = false;
     } catch {
-      btn.disabled = false;
+      btn.disabled  = false;
       btn.innerHTML = origText;
-      error.hidden = false;
+      error.hidden  = false;
     }
   });
 })();
