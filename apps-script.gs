@@ -2,12 +2,13 @@
 // Paste this code at https://script.google.com
 // Deploy as Web App: Execute as "Me", Access "Anyone"
 
-var SHEET_NAME = 'Responses';
+var SPREADSHEET_ID = '1VGeJ7DyulJl1kPwVHElgp7JJPiqC4gYDeVMRgu1w6jk';
+var SHEET_NAME     = 'Responses';
 
 function doPost(e) {
   try {
     var data = JSON.parse(e.postData.contents);
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SHEET_NAME);
+    var sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(SHEET_NAME);
 
     if (!sheet) {
       sheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet(SHEET_NAME);
