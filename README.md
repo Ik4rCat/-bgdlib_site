@@ -67,25 +67,10 @@ BGDLib (Babylonian GameDev Library) is a mobile application for game developers 
 
 ---
 
-## Survey form
-
-The `#cta` section contains an 8-question survey (radio + checkbox + email).  
-Responses are sent via `fetch POST` to a Google Apps Script endpoint.
-
-To wire it up:
-1. Create a Google Sheet
-2. Open **Extensions → Apps Script**, paste the contents of `apps-script.gs`
-3. Deploy as **Web App** (Execute as: Me, Access: Anyone)
-4. Copy the deployment URL into `script.js` → `const APPS_SCRIPT_URL = '...'`
-
----
-
 ## Deployment
 
 The site is deployed on **GitHub Pages** from the `main` branch root.  
 A custom domain `crazyanimalsstudio.space/bgd` is configured via CNAME / GitHub Pages settings.
-
-To deploy changes: push to `main` — GitHub Pages rebuilds automatically.
 
 ---
 
@@ -98,4 +83,4 @@ All visible text uses `data-t="key"` attributes. Translations live in `script.js
 ## Contact
 
 GitHub: https://github.com/ik4rcat  
-Email: cat.ikar294@gmail.com
+Email: altworsekitten@gmail.com OR crazy.studio.cat@gmail.com
