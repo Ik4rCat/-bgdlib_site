@@ -1098,12 +1098,19 @@ footer {
   font-family: var(--mono);
   font-size: 10px;
   letter-spacing: 0.12em;
-  color: var(--text3);
+  color: var(--lime);
   text-decoration: none;
-  transition: color 0.12s linear;
+  border: 1px solid rgba(192,252,4,0.3);
+  padding: 4px 8px;
+  border-radius: 2px;
+  transition: color 0.15s linear, border-color 0.15s linear, background 0.15s linear;
   white-space: nowrap;
 }
-.nav-cas:hover { color: var(--text2); }
+.nav-cas:hover {
+  color: var(--bg);
+  background: var(--lime);
+  border-color: var(--lime);
+}
 
 /* ── SOLUTION ── */
 .sol-grid {
